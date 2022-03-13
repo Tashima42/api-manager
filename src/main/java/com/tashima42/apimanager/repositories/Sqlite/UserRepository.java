@@ -17,11 +17,7 @@ import java.sql.ResultSet;
  */
 public class UserRepository implements IUserRepository {
 
-    Connection conn;
-
-    public UserRepository(Connection conn) {
-        this.conn = conn;
-    }
+    private final Connection conn = Connect.connect();
 
     @Override
     public User findByName(String name) {

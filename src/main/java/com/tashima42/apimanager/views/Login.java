@@ -4,17 +4,14 @@
  */
 package com.tashima42.apimanager.views;
 
-import com.tashima42.apimanager.repositories.Sqlite.Connect;
 import com.tashima42.apimanager.repositories.Sqlite.UserRepository;
-import java.sql.Connection;
 
 /**
  *
  * @author tashima
  */
-public class LoginPage {
-    private final Connection conn = Connect.connect();
-    private final UserRepository userRepository = new UserRepository(conn);
+public class Login {
+    private final UserRepository userRepository = new UserRepository();
     
     public Boolean login(String name, String password) {
         if(name == null) {

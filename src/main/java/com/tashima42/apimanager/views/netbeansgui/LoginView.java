@@ -5,14 +5,14 @@
 package com.tashima42.apimanager.views.netbeansgui;
 
 import com.tashima42.apimanager.repositories.Sqlite.UserRepository;
-import com.tashima42.apimanager.views.LoginPage;
+import com.tashima42.apimanager.views.Login;
 
 /**
  *
  * @author tashima
  */
 public class LoginView extends javax.swing.JFrame {
-    private final LoginPage loginPage = new LoginPage();
+    private final Login loginPage = new Login();
 
     /**
      * Creates new form NewJFrame
@@ -136,7 +136,7 @@ public class LoginView extends javax.swing.JFrame {
             String password = userPassword.getText();
             Boolean credentialsAreValid = this.loginPage.login(name, password);
             if (credentialsAreValid) {
-                new InitialView().setVisible(true);
+                new MainView().setVisible(true);
                 this.dispose();
             }
         } catch (Error e) {
