@@ -2,22 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package my_package.views;
+package com.tashima42.apimanager.views.netbeansgui;
 
-import java.sql.Connection;
-import my_package.Connect;
-import my_package.User;
-import my_package.repositories.Sqlite.UserRepository;
+import com.tashima42.apimanager.repositories.Sqlite.UserRepository;
+import com.tashima42.apimanager.views.LoginPage;
 
 /**
  *
  * @author tashima
  */
 public class LoginView extends javax.swing.JFrame {
-
-    private Connection conn = Connect.connect();
-    private UserRepository userRepository = new UserRepository(conn);
-    private LoginPageHelper loginPageHelper = new LoginPageHelper(this.userRepository);
+    private final LoginPage loginPage = new LoginPage();
 
     /**
      * Creates new form NewJFrame
@@ -139,8 +134,7 @@ public class LoginView extends javax.swing.JFrame {
         try {
             String name = userName.getText();
             String password = userPassword.getText();
-            System.out.println("name: " + name + " " + password);
-            Boolean credentialsAreValid = this.loginPageHelper.login(name, password);
+            Boolean credentialsAreValid = this.loginPage.login(name, password);
             if (credentialsAreValid) {
                 new InitialView().setVisible(true);
                 this.dispose();
@@ -208,29 +202,4 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JLabel userPasswordLabel;
     // End of variables declaration//GEN-END:variables
 
-}
-
-class LoginPageHelper {
-
-    private UserRepository userRepository;
-
-    public LoginPageHelper(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    public Boolean login(String name, String password) {
-        if (name == null) {
-            throw new Error("Name is mandatory for login");
-        }
-        if (password == null) {
-            throw new Error("Password is mandatory for login");
-        }
-        try {
-            String userPassword = this.userRepository.findByName(name).getPassword();
-            return password.equals(userPassword);
-        } catch (Error e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
-    }
 }

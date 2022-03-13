@@ -2,12 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package my_package;
+package com.tashima42.apimanager.main;
 
-import my_package.repositories.Sqlite.UserRepository;
+import com.tashima42.apimanager.repositories.Sqlite.Connect;
+import com.tashima42.apimanager.repositories.Sqlite.UserRepository;
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.SQLException;
 
 /**
  *
@@ -37,8 +36,5 @@ public class User {
 
     public String getPassword() {
         return this.password;
-    }
-    
-    public static void main(String args[]) {
     }
 }

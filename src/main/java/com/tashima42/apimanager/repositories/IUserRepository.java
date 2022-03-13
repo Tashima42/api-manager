@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package my_package.repositories;
+package com.tashima42.apimanager.repositories;
 
-import my_package.User;
+import com.tashima42.apimanager.main.User;
 
 /**
  *

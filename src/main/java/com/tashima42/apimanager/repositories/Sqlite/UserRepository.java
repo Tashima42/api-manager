@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package my_package.repositories.Sqlite;
+package com.tashima42.apimanager.repositories.Sqlite;
 
-import my_package.repositories.IUserRepository;
-import my_package.User;
+import com.tashima42.apimanager.repositories.IUserRepository;
+import com.tashima42.apimanager.main.User;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -28,7 +28,6 @@ public class UserRepository implements IUserRepository {
         String sql = "SELECT name, role, password \n"
                 + "FROM user where name = ?;";
         try ( PreparedStatement ptsmt = this.conn.prepareStatement(sql)) {
-            System.out.println("TEST");
             ptsmt.setString(1, name);
             ResultSet res = ptsmt.executeQuery();
             String userName = res.getString("name");
@@ -37,7 +36,6 @@ public class UserRepository implements IUserRepository {
             User user = new User(userName, userRole, userPassword);
             return user;
         } catch (SQLException e) {
-            System.out.println("message");
             System.out.println(e.getMessage());
             throw new Error("User not found");
         }
