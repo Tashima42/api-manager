@@ -11,7 +11,11 @@ import com.tashima42.apimanager.repositories.Sqlite.UserRepository;
  * @author tashima
  */
 public class Login {
-    private final UserRepository userRepository = new UserRepository();
+    private final UserRepository userRepository;
+
+    public Login() {
+        this.userRepository = new UserRepository();
+    }
     
     public Boolean login(String name, String password) {
         if(name == null) {

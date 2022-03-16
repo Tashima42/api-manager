@@ -15,7 +15,6 @@ import java.sql.PreparedStatement;
  * @author tashima
  */
 public class Connect {
-
     static Connection conn;
 
     public static final Connection connect() {

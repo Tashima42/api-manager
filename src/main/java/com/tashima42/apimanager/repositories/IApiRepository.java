@@ -5,11 +5,12 @@
 package com.tashima42.apimanager.repositories;
 
 import com.tashima42.apimanager.main.Api;
+import java.util.ArrayList;
 
 /**
  *
  * @author tashima
  */
 public interface IApiRepository {
-    Api[] getAll();
+   ArrayList<Api> getAll();
 }

@@ -12,12 +12,13 @@ import com.tashima42.apimanager.views.Login;
  * @author tashima
  */
 public class LoginView extends javax.swing.JFrame {
-    private final Login loginPage = new Login();
+    private final Login loginPage;
 
     /**
      * Creates new form NewJFrame
      */
     public LoginView() {
+        loginPage = new Login();
         this.setLocationRelativeTo(null);
         initComponents();
     }

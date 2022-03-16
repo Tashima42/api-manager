@@ -4,14 +4,23 @@
  */
 package com.tashima42.apimanager.views;
 
-import com.tashima42.apimanager.repositories.Sqlite.Connect;
-import java.sql.Connection;
+import com.tashima42.apimanager.main.Api;
+import com.tashima42.apimanager.repositories.Sqlite.ApiRepository;
+import java.util.ArrayList;
 
 /**
  *
  * @author tashima
  */
 public class ApiList {
-  private final Connection conn = Connect.connect();
-    
+  private final ApiRepository apiRepository;
+
+    public ApiList() {
+        this.apiRepository = new ApiRepository();
+    }
+  
+  public ArrayList<Api> getAllTable() {
+      ArrayList<Api> apis = apiRepository.getAll();
+      return apis;
+  }
 }
