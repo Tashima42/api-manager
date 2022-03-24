@@ -32,66 +32,43 @@ public class MainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
-        userNameEditField = new javax.swing.JTextField();
-        userRoleEditField = new javax.swing.JComboBox<>();
-        userEditButton = new javax.swing.JButton();
-        userNameEditLabel = new javax.swing.JLabel();
-        userRoleEditLabel = new javax.swing.JLabel();
-        userPasswordEditLabel = new javax.swing.JLabel();
-        userPasswordEditField = new javax.swing.JPasswordField();
-        ApiTab1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        apiTableTest = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        apiTableTest1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        apiTableTest2 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        tabs = new javax.swing.JTabbedPane();
+        apiPanel = new javax.swing.JPanel();
+        apiScrollPanel = new javax.swing.JScrollPane();
+        apiTable = new javax.swing.JTable();
+        apiEditButton = new javax.swing.JButton();
+        apiAddButton = new javax.swing.JButton();
+        teamsPanel = new javax.swing.JPanel();
+        teamsScrollPanel = new javax.swing.JScrollPane();
+        teamsTable = new javax.swing.JTable();
+        teamsEditButton = new javax.swing.JButton();
+        teamsAddButton = new javax.swing.JButton();
+        employeesPanel = new javax.swing.JPanel();
+        employeesScrollPanel = new javax.swing.JScrollPane();
+        employeesTable = new javax.swing.JTable();
+        employeesEditButton = new javax.swing.JButton();
+        employeeAddButton = new javax.swing.JButton();
+        mainMenuBar = new javax.swing.JMenuBar();
+        fileMenu = new javax.swing.JMenu();
+        apiMenu = new javax.swing.JMenu();
+        apiAddItem = new javax.swing.JMenuItem();
+        editApiItem = new javax.swing.JMenuItem();
+        removeApiItem = new javax.swing.JMenuItem();
+        teamsMenu = new javax.swing.JMenu();
+        teamAddItem = new javax.swing.JMenuItem();
+        teamEditItem = new javax.swing.JMenuItem();
+        teamRemoveItem = new javax.swing.JMenuItem();
+        employeesMenu = new javax.swing.JMenu();
+        employeeAddItem = new javax.swing.JMenuItem();
+        employeeEditItem = new javax.swing.JMenuItem();
+        employeeRemoveItem = new javax.swing.JMenuItem();
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        userNameEditField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameEditFieldActionPerformed(evt);
-            }
-        });
-
-        userRoleEditField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        userRoleEditField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userRoleEditFieldActionPerformed(evt);
-            }
-        });
-
-        userEditButton.setText("edit");
-
-        userNameEditLabel.setText("name");
-
-        userRoleEditLabel.setText("password");
-
-        userPasswordEditLabel.setText("role");
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        apiTableTest.setModel(new javax.swing.table.DefaultTableModel(
+        apiTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"User Provisioning", "Create users and manage their data", "Alpha", "Rafael"},
                 {"Payments", "Simple solution for in-app payments", "Bravo", "Marcos"},
@@ -111,64 +88,64 @@ public class MainView extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(apiTableTest);
-        if (apiTableTest.getColumnModel().getColumnCount() > 0) {
-            apiTableTest.getColumnModel().getColumn(2).setHeaderValue("Manager");
-            apiTableTest.getColumnModel().getColumn(3).setHeaderValue("Owner");
+        apiScrollPanel.setViewportView(apiTable);
+        if (apiTable.getColumnModel().getColumnCount() > 0) {
+            apiTable.getColumnModel().getColumn(2).setHeaderValue("Manager");
+            apiTable.getColumnModel().getColumn(3).setHeaderValue("Owner");
         }
 
-        jButton1.setText("Edit");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        apiEditButton.setText("Edit");
+        apiEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                apiEditButtonMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        apiEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                apiEditButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Add");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        apiAddButton.setText("Add");
+        apiAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                apiAddButtonMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        apiAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                apiAddButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout apiPanelLayout = new javax.swing.GroupLayout(apiPanel);
+        apiPanel.setLayout(apiPanelLayout);
+        apiPanelLayout.setHorizontalGroup(
+            apiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apiPanelLayout.createSequentialGroup()
+                .addComponent(apiScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(apiPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(apiEditButton)
                 .addGap(41, 41, 41)
-                .addComponent(jButton2)
+                .addComponent(apiAddButton)
                 .addGap(181, 181, 181))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+        apiPanelLayout.setVerticalGroup(
+            apiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apiPanelLayout.createSequentialGroup()
+                .addComponent(apiScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addGroup(apiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(apiEditButton)
+                    .addComponent(apiAddButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        ApiTab1.addTab("APIs", jPanel1);
+        tabs.addTab("APIs", apiPanel);
 
-        apiTableTest1.setModel(new javax.swing.table.DefaultTableModel(
+        teamsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Alpha", "User specialists", "Mathias"},
                 {"Bravo", "Payment warriors", "Federico"},
@@ -188,63 +165,63 @@ public class MainView extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(apiTableTest1);
-        if (apiTableTest1.getColumnModel().getColumnCount() > 0) {
-            apiTableTest1.getColumnModel().getColumn(2).setHeaderValue("Manager");
+        teamsScrollPanel.setViewportView(teamsTable);
+        if (teamsTable.getColumnModel().getColumnCount() > 0) {
+            teamsTable.getColumnModel().getColumn(2).setHeaderValue("Manager");
         }
 
-        jButton3.setText("Edit");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        teamsEditButton.setText("Edit");
+        teamsEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                teamsEditButtonMouseClicked(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        teamsEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                teamsEditButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Add");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        teamsAddButton.setText("Add");
+        teamsAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                teamsAddButtonMouseClicked(evt);
             }
         });
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        teamsAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                teamsAddButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout teamsPanelLayout = new javax.swing.GroupLayout(teamsPanel);
+        teamsPanel.setLayout(teamsPanelLayout);
+        teamsPanelLayout.setHorizontalGroup(
+            teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(teamsPanelLayout.createSequentialGroup()
+                .addComponent(teamsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(teamsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(teamsEditButton)
                 .addGap(41, 41, 41)
-                .addComponent(jButton4)
+                .addComponent(teamsAddButton)
                 .addGap(181, 181, 181))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+        teamsPanelLayout.setVerticalGroup(
+            teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, teamsPanelLayout.createSequentialGroup()
+                .addComponent(teamsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                .addGroup(teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(teamsEditButton)
+                    .addComponent(teamsAddButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        ApiTab1.addTab("TEAMS", jPanel2);
+        tabs.addTab("Teams", teamsPanel);
 
-        apiTableTest2.setModel(new javax.swing.table.DefaultTableModel(
+        employeesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Mathias", "Staff Engineer"},
                 {"Federico", "Project Manager"},
@@ -268,130 +245,167 @@ public class MainView extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(apiTableTest2);
+        employeesScrollPanel.setViewportView(employeesTable);
 
-        jButton5.setText("Edit");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        employeesEditButton.setText("Edit");
+        employeesEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                employeesEditButtonMouseClicked(evt);
             }
         });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        employeesEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                employeesEditButtonActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Add");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        employeeAddButton.setText("Add");
+        employeeAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                employeeAddButtonMouseClicked(evt);
             }
         });
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        employeeAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                employeeAddButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout employeesPanelLayout = new javax.swing.GroupLayout(employeesPanel);
+        employeesPanel.setLayout(employeesPanelLayout);
+        employeesPanelLayout.setHorizontalGroup(
+            employeesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(employeesPanelLayout.createSequentialGroup()
+                .addComponent(employeesScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(employeesPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(employeesEditButton)
                 .addGap(41, 41, 41)
-                .addComponent(jButton6)
+                .addComponent(employeeAddButton)
                 .addGap(181, 181, 181))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+        employeesPanelLayout.setVerticalGroup(
+            employeesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, employeesPanelLayout.createSequentialGroup()
+                .addComponent(employeesScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                .addGroup(employeesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(employeesEditButton)
+                    .addComponent(employeeAddButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        ApiTab1.addTab("EMPLOYEES", jPanel3);
+        tabs.addTab("Employees", employeesPanel);
+
+        fileMenu.setText("File");
+
+        apiMenu.setText("APIs");
+
+        apiAddItem.setText("Add API");
+        apiMenu.add(apiAddItem);
+
+        editApiItem.setText("Edit API");
+        apiMenu.add(editApiItem);
+
+        removeApiItem.setText("Remove API");
+        apiMenu.add(removeApiItem);
+
+        fileMenu.add(apiMenu);
+
+        teamsMenu.setText("Teams");
+
+        teamAddItem.setText("Add Team");
+        teamsMenu.add(teamAddItem);
+
+        teamEditItem.setText("Edit Team");
+        teamsMenu.add(teamEditItem);
+
+        teamRemoveItem.setText("Remove Team");
+        teamsMenu.add(teamRemoveItem);
+
+        fileMenu.add(teamsMenu);
+
+        employeesMenu.setText("Employees");
+
+        employeeAddItem.setText("Add Employee");
+        employeesMenu.add(employeeAddItem);
+
+        employeeEditItem.setText("Edit Employee");
+        employeesMenu.add(employeeEditItem);
+
+        employeeRemoveItem.setText("Remove Employee");
+        employeesMenu.add(employeeRemoveItem);
+
+        fileMenu.add(employeesMenu);
+
+        mainMenuBar.add(fileMenu);
+
+        setJMenuBar(mainMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ApiTab1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tabs, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ApiTab1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tabs, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userRoleEditFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userRoleEditFieldActionPerformed
+    private void apiAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiAddButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userRoleEditFieldActionPerformed
+    }//GEN-LAST:event_apiAddButtonActionPerformed
 
-    private void userNameEditFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameEditFieldActionPerformed
+    private void apiAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiAddButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_userNameEditFieldActionPerformed
+    }//GEN-LAST:event_apiAddButtonMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void apiEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiEditButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_apiEditButtonActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void apiEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiEditButtonMouseClicked
         // TODO add your handling code here:
         ArrayList<Api> apis = apiList.getAllTable();
         System.out.println(apis);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_apiEditButtonMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void teamsEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamsEditButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_teamsEditButtonMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void teamsEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamsEditButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_teamsEditButtonActionPerformed
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void teamsAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamsAddButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_teamsAddButtonMouseClicked
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void teamsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamsAddButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_teamsAddButtonActionPerformed
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void employeesEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesEditButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_employeesEditButtonMouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void employeesEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeesEditButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_employeesEditButtonActionPerformed
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void employeeAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAddButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_employeeAddButtonMouseClicked
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void employeeAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeAddButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_employeeAddButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -432,29 +446,36 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane ApiTab1;
-    private javax.swing.JTable apiTableTest;
-    private javax.swing.JTable apiTableTest1;
-    private javax.swing.JTable apiTableTest2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JButton userEditButton;
-    private javax.swing.JTextField userNameEditField;
-    private javax.swing.JLabel userNameEditLabel;
-    private javax.swing.JPasswordField userPasswordEditField;
-    private javax.swing.JLabel userPasswordEditLabel;
-    private javax.swing.JComboBox<String> userRoleEditField;
-    private javax.swing.JLabel userRoleEditLabel;
+    private javax.swing.JButton apiAddButton;
+    private javax.swing.JMenuItem apiAddItem;
+    private javax.swing.JButton apiEditButton;
+    private javax.swing.JMenu apiMenu;
+    private javax.swing.JPanel apiPanel;
+    private javax.swing.JScrollPane apiScrollPanel;
+    private javax.swing.JTable apiTable;
+    private javax.swing.JMenuItem editApiItem;
+    private javax.swing.JButton employeeAddButton;
+    private javax.swing.JMenuItem employeeAddItem;
+    private javax.swing.JMenuItem employeeEditItem;
+    private javax.swing.JMenuItem employeeRemoveItem;
+    private javax.swing.JButton employeesEditButton;
+    private javax.swing.JMenu employeesMenu;
+    private javax.swing.JPanel employeesPanel;
+    private javax.swing.JScrollPane employeesScrollPanel;
+    private javax.swing.JTable employeesTable;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuBar mainMenuBar;
+    private javax.swing.JMenuItem removeApiItem;
+    private javax.swing.JTabbedPane tabs;
+    private javax.swing.JMenuItem teamAddItem;
+    private javax.swing.JMenuItem teamEditItem;
+    private javax.swing.JMenuItem teamRemoveItem;
+    private javax.swing.JButton teamsAddButton;
+    private javax.swing.JButton teamsEditButton;
+    private javax.swing.JMenu teamsMenu;
+    private javax.swing.JPanel teamsPanel;
+    private javax.swing.JScrollPane teamsScrollPanel;
+    private javax.swing.JTable teamsTable;
     // End of variables declaration//GEN-END:variables
 }
