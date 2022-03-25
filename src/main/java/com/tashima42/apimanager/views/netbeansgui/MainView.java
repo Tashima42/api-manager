@@ -4,8 +4,10 @@
  */
 package com.tashima42.apimanager.views.netbeansgui;
 
-import com.tashima42.apimanager.main.Api;
-import com.tashima42.apimanager.views.ApiList;
+import com.tashima42.apimanager.entities.Api;
+import com.tashima42.apimanager.entities.Team;
+import com.tashima42.apimanager.entities.Employee;
+import com.tashima42.apimanager.views.Main;
 import java.util.ArrayList;
 
 /**
@@ -13,14 +15,18 @@ import java.util.ArrayList;
  * @author tashima
  */
 public class MainView extends javax.swing.JFrame {
-    private final ApiList apiList;
+
+    private final Main main;
 
     /**
      * Creates new form InitialView
      */
     public MainView() {
-        apiList = new ApiList();
+        main = new Main();
         initComponents();
+        setApisTable();
+        setTeamsTable();
+        setEmployeesTable();
     }
 
     /**
@@ -70,29 +76,13 @@ public class MainView extends javax.swing.JFrame {
 
         apiTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"User Provisioning", "Create users and manage their data", "Alpha", "Rafael"},
-                {"Payments", "Simple solution for in-app payments", "Bravo", "Marcos"},
-                {"Authentication", "Easy token based authentication", "Charlie", "Fábio"},
-                {"Notification", "Push notifications for users", "Delta", "Nolys"},
-                {"Freight", "Pricing, provisionment, etc.", "Echo", "Giovanna"}
+
             },
             new String [] {
-                "Name", "Description", "Team", "Owner"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         apiScrollPanel.setViewportView(apiTable);
-        if (apiTable.getColumnModel().getColumnCount() > 0) {
-            apiTable.getColumnModel().getColumn(2).setHeaderValue("Manager");
-            apiTable.getColumnModel().getColumn(3).setHeaderValue("Owner");
-        }
 
         apiEditButton.setText("Edit");
         apiEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -147,28 +137,13 @@ public class MainView extends javax.swing.JFrame {
 
         teamsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Alpha", "User specialists", "Mathias"},
-                {"Bravo", "Payment warriors", "Federico"},
-                {"Charlie", "Security nerds", "Fábio"},
-                {"Delta", "Marketing providers", "José"},
-                {"Echo", "Downtime kings ", "Fernando"}
+
             },
             new String [] {
-                "Name", "Description", "Manager"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         teamsScrollPanel.setViewportView(teamsTable);
-        if (teamsTable.getColumnModel().getColumnCount() > 0) {
-            teamsTable.getColumnModel().getColumn(2).setHeaderValue("Manager");
-        }
 
         teamsEditButton.setText("Edit");
         teamsEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -223,28 +198,12 @@ public class MainView extends javax.swing.JFrame {
 
         employeesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Mathias", "Staff Engineer"},
-                {"Federico", "Project Manager"},
-                {"Fábio", "CSO"},
-                {"José", "Comercial Director"},
-                {"Fernando", "Logistics Coordinator"},
-                {"Rafael", "Software Developer"},
-                {"Marcos", "Software Developer"},
-                {"Nolys", "Software Developer"},
-                {"Giovanna", "Software Developer"}
+
             },
             new String [] {
-                "Name", "Role"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         employeesScrollPanel.setViewportView(employeesTable);
 
         employeesEditButton.setText("Edit");
@@ -371,8 +330,6 @@ public class MainView extends javax.swing.JFrame {
 
     private void apiEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiEditButtonMouseClicked
         // TODO add your handling code here:
-        ArrayList<Api> apis = apiList.getAllTable();
-        System.out.println(apis);
     }//GEN-LAST:event_apiEditButtonMouseClicked
 
     private void teamsEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamsEditButtonMouseClicked
@@ -444,6 +401,77 @@ public class MainView extends javax.swing.JFrame {
             }
         });
     }
+
+    private void setApisTable() {
+        Object[][] apis = this.main.getApisInfo();
+        apiTable.setModel(new javax.swing.table.DefaultTableModel(
+                apis,
+                new String[]{"Name", "Description", "Team", "Owner"}) {
+            Class[] types = new Class[]{
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types[columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        });
+    }
+
+    ;
+    
+        private void setTeamsTable() {
+        Object[][] teams = this.main.getTeamsInfo();
+        teamsTable.setModel(new javax.swing.table.DefaultTableModel(
+                teams,
+                new String[]{"Name", "Description", "Manager"}) {
+            Class[] types = new Class[]{
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean[]{
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types[columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        });
+    }
+
+    ;
+        
+     private void setEmployeesTable() {
+        Object[][] employees = this.main.getEmployeesInfo();
+        employeesTable.setModel(new javax.swing.table.DefaultTableModel(
+                employees,
+                new String[]{"Name", "Description", "Role"}) {
+            Class[] types = new Class[]{
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean[]{
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types[columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        });
+    }
+    ;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton apiAddButton;

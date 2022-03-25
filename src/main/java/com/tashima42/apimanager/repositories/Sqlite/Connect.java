@@ -15,13 +15,14 @@ import java.sql.PreparedStatement;
  * @author tashima
  */
 public class Connect {
+
     static Connection conn;
 
     public static final Connection connect() {
         if (Connect.conn != null) {
             return Connect.conn;
         } else {
-            String url = "jdbc:sqlite:/home/tashima/projects/study/UTFPR/apoo/database.db";
+            String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "/database.db";
             try {
                 Connection conn = DriverManager.getConnection(url);
                 Connect.conn = conn;
@@ -33,7 +34,11 @@ public class Connect {
         return null;
     }
 
-    public static void prepare(Connection conn, Boolean migrate, Boolean populate) {
+    public static void prepare(Connection conn, Boolean dropTables, Boolean migrate, Boolean populate) {
+        if (dropTables) {
+            Connect.dropAllTables(conn);
+        }
+        
         if (migrate) {
             System.out.println("STARTED MIGRATIONS");
             Connect.migrate(conn);
@@ -47,31 +52,42 @@ public class Connect {
     }
 
     public static void migrate(Connection conn) {
-        Connect.migrateUser(conn);
+        Connect.migrateEmployee(conn);
         Connect.migrateTeam(conn);
-        Connect.migrateUserTeam(conn);
+        Connect.migrateEmployeeTeam(conn);
         Connect.migrateApi(conn);
-        Connect.migrateAccess(conn);
     }
 
     public static void populate(Connection conn) {
-        Connect.populateUser(conn);
+        Connect.populateEmployee(conn);
         Connect.populateTeam(conn);
-        Connect.populateUserTeam(conn);
+        Connect.populateEmployeeTeam(conn);
         Connect.populateApi(conn);
-        Connect.populateAccess(conn);
     }
 
-    private static void migrateUser(Connection conn) {
-        String sql = "CREATE TABLE IF NOT EXISTS user(\n"
+    private static void dropAllTables(Connection conn) {
+        try ( Statement stmt = conn.createStatement()) {
+            stmt.execute("DROP TABLE api;");
+            stmt.execute("DROP TABLE employee_team;");
+            stmt.execute("DROP TABLE team;");
+            stmt.execute("DROP TABLE employee;");
+            System.out.println("Droped all tables");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void migrateEmployee(Connection conn) {
+        String sql = "CREATE TABLE IF NOT EXISTS employee(\n"
                 + "     id integer PRIMARY KEY,\n"
                 + "     name text NOT NULL,\n"
+                + "     description text NOT NULL,\n"
                 + "     password text NOT NULL,\n"
                 + "     role text NOT NULL\n"
                 + ");";
         try ( Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-            System.out.println("Migrated user");
+            System.out.println("Migrated employee");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -81,7 +97,7 @@ public class Connect {
         String sql = "CREATE TABLE IF NOT EXISTS team(\n"
                 + "     id integer PRIMARY KEY,\n"
                 + "     name text NOT NULL UNIQUE,\n"
-                + "     owner text NOT NULL\n"
+                + "     description text NOT NULL\n"
                 + ");";
         try ( Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
@@ -91,17 +107,17 @@ public class Connect {
         }
     }
 
-    private static void migrateUserTeam(Connection conn) {
-        String sql = "CREATE TABLE IF NOT EXISTS user_team(\n"
+    private static void migrateEmployeeTeam(Connection conn) {
+        String sql = "CREATE TABLE IF NOT EXISTS employee_team(\n"
                 + "     id integer PRIMARY KEY,\n"
                 + "     team text NOT NULL,\n"
-                + "     user text NOT NULL,\n"
+                + "     employee text NOT NULL,\n"
                 + "     FOREIGN KEY (team) REFERENCES team (id),\n"
-                + "     FOREIGN KEY (user) REFERENCES user (id)\n"
+                + "     FOREIGN KEY (employee) REFERENCES employee (id)\n"
                 + ");";
         try ( Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-            System.out.println("Migrated user_team");
+            System.out.println("Migrated employee_team");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -115,7 +131,7 @@ public class Connect {
                 + "     owner text NOT NULL,\n"
                 + "     team text NOT NULL,\n"
                 + "     FOREIGN KEY (team) REFERENCES team (id),\n"
-                + "     FOREIGN KEY (owner) REFERENCES user (id)\n"
+                + "     FOREIGN KEY (owner) REFERENCES employee (id)\n"
                 + ");";
         try ( Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
@@ -125,48 +141,89 @@ public class Connect {
         }
     }
 
-    private static void migrateAccess(Connection conn) {
-        String sql = "CREATE TABLE IF NOT EXISTS access(\n"
-                + "     id integer PRIMARY KEY,\n"
-                + "     api_key text NOT NULL UNIQUE,\n"
-                + "     enabled boolean NOT NULL,\n"
-                + "     api text NOT NULL,\n"
-                + "     user text NOT NULL,\n"
-                + "     FOREIGN KEY (api) REFERENCES api (id),\n"
-                + "     FOREIGN KEY (user) REFERENCES user (id)\n"
-                + ");";
-        try ( Statement stmt = conn.createStatement()) {
-            stmt.execute(sql);
-            System.out.println("Migrated access");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    private static void populateUser(Connection conn) {
-        String sql = "INSERT INTO user\n"
-                + "     (name, role, password)\n"
-                + "     VALUES (?, ?, ?)";
+    private static void populateEmployee(Connection conn) {
+        String sql = "INSERT INTO employee (name, role, password, description)\n"
+                + "     VALUES (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?),\n"
+                + "     (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?);";
 
         try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "user1");
-            pstmt.setString(2, "MANAGER");
+            pstmt.setString(1, "Rafael");
+            pstmt.setString(2, "DEVELOPER");
             pstmt.setString(3, "password");
+            pstmt.setString(4, "Software Developer");
+
+            pstmt.setString(5, "Marcos");
+            pstmt.setString(6, "DEVELOPER");
+            pstmt.setString(7, "password");
+            pstmt.setString(8, "Software Developer");
+
+            pstmt.setString(9, "Fábio");
+            pstmt.setString(10, "DEVELOPER");
+            pstmt.setString(11, "password");
+            pstmt.setString(12, "Software Developer");
+
+            pstmt.setString(13, "Nolys");
+            pstmt.setString(14, "DEVELOPER");
+            pstmt.setString(15, "password");
+            pstmt.setString(16, "Software Developer");
+
+            pstmt.setString(17, "Giovanna");
+            pstmt.setString(18, "DEVELOPER");
+            pstmt.setString(19, "password");
+            pstmt.setString(20, "Software Developer");
+
+            pstmt.setString(21, "Mathias");
+            pstmt.setString(22, "MANAGER");
+            pstmt.setString(23, "password");
+            pstmt.setString(24, "Staff Engineer");
+
+            pstmt.setString(25, "Federico");
+            pstmt.setString(26, "MANAGER");
+            pstmt.setString(27, "password");
+            pstmt.setString(28, "Project Manager");
+
+            pstmt.setString(29, "José");
+            pstmt.setString(30, "MANAGER");
+            pstmt.setString(31, "password");
+            pstmt.setString(32, "Comercial Director");
+
+            pstmt.setString(33, "Fernando");
+            pstmt.setString(34, "MANAGER");
+            pstmt.setString(35, "password");
+            pstmt.setString(36, "Logistics Coordinator");
+
             pstmt.executeUpdate();
-            System.out.println("Populated user");
+            System.out.println("Populated employee");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
     private static void populateTeam(Connection conn) {
-        String sql = "INSERT INTO team\n"
-                + "     (owner, name)\n"
-                + "     VALUES (?, ?)";
+        String sql = "INSERT INTO team (name, description, owner)\n"
+                + "     VALUES (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?);";
 
         try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, 1);
-            pstmt.setString(2, "team1");
+            pstmt.setString(1, "Alpha");
+            pstmt.setString(2, "User specialists");
+            pstmt.setInt(3, 6);
+
+            pstmt.setString(4, "Bravo");
+            pstmt.setString(5, "Payment providers");
+            pstmt.setInt(6, 7);
+
+            pstmt.setString(7, "Charlie");
+            pstmt.setString(8, "Security nerds");
+            pstmt.setInt(9, 3);
+
+            pstmt.setString(10, "Delta");
+            pstmt.setString(11, "Marketing providers");
+            pstmt.setInt(12, 8);
+
+            pstmt.setString(13, "Echo");
+            pstmt.setString(14, "Shipment specialists");
+            pstmt.setInt(15, 9);
+
             pstmt.executeUpdate();
             System.out.println("Populated team");
         } catch (SQLException e) {
@@ -174,16 +231,44 @@ public class Connect {
         }
     }
 
-    private static void populateUserTeam(Connection conn) {
-        String sql = "INSERT INTO user_team\n"
-                + "     (team, user)\n"
-                + "     VALUES (?, ?)";
+    private static void populateEmployeeTeam(Connection conn) {
+        String sql = "INSERT INTO employee_team (team, employee)\n"
+                + "     VALUES (?, ?), (?, ?), (?, ?), (?, ?), (?, ?),\n"
+                + "     (?, ?), (?, ?), (?, ?), (?, ?), (?, ?);";
 
         try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, 1);
             pstmt.setInt(2, 1);
+
+            pstmt.setInt(3, 2);
+            pstmt.setInt(4, 2);
+
+            pstmt.setInt(5, 3);
+            pstmt.setInt(6, 3);
+
+            pstmt.setInt(7, 4);
+            pstmt.setInt(8, 4);
+
+            pstmt.setInt(9, 5);
+            pstmt.setInt(10, 5);
+
+            pstmt.setInt(11, 1);
+            pstmt.setInt(12, 6);
+
+            pstmt.setInt(13, 2);
+            pstmt.setInt(14, 7);
+
+            pstmt.setInt(15, 3);
+            pstmt.setInt(16, 3);
+
+            pstmt.setInt(17, 4);
+            pstmt.setInt(18, 8);
+
+            pstmt.setInt(19, 5);
+            pstmt.setInt(20, 9);
+
             pstmt.executeUpdate();
-            System.out.println("Populated user_team");
+            System.out.println("Populated employee_team");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -192,13 +277,34 @@ public class Connect {
     private static void populateApi(Connection conn) {
         String sql = "INSERT INTO api\n"
                 + "     (name, description, owner, team)\n"
-                + "     VALUES (?, ?, ?, ?)";
+                + "     VALUES (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?);";
 
         try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "api1");
-            pstmt.setString(2, "api1 description");
-            pstmt.setInt(3, 1);
+            pstmt.setString(1, "User Provisioning");
+            pstmt.setString(2, "Create users and manage their data");
+            pstmt.setInt(3, 2);
             pstmt.setInt(4, 1);
+
+            pstmt.setString(5, "Payments");
+            pstmt.setString(6, "Simple solution for in-app payments");
+            pstmt.setInt(7, 3);
+            pstmt.setInt(8, 2);
+
+            pstmt.setString(9, "Authentication");
+            pstmt.setString(10, "Easy token based authentication");
+            pstmt.setInt(11, 4);
+            pstmt.setInt(12, 3);
+
+            pstmt.setString(13, "Notification");
+            pstmt.setString(14, "Push notifications for users");
+            pstmt.setInt(15, 5);
+            pstmt.setInt(16, 4);
+
+            pstmt.setString(17, "Freight");
+            pstmt.setString(18, "Pricing, provisionment, etc");
+            pstmt.setInt(19, 6);
+            pstmt.setInt(20, 5);
+
             pstmt.executeUpdate();
             System.out.println("Populated api");
         } catch (SQLException e) {
@@ -206,25 +312,8 @@ public class Connect {
         }
     }
 
-    private static void populateAccess(Connection conn) {
-        String sql = "INSERT INTO access\n"
-                + "     (api_key, enabled, api, user)\n"
-                + "     VALUES (?, ?, ?, ?)";
-
-        try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "apikey1");
-            pstmt.setBoolean(2, true);
-            pstmt.setInt(3, 1);
-            pstmt.setInt(4, 1);
-            pstmt.executeUpdate();
-            System.out.println("Populated access");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
     public static void main(String args[]) {
-        Connection conn = new Connect().conn;
-        Connect.prepare(conn, Boolean.TRUE, Boolean.TRUE);
+        Connection connection = Connect.connect();
+        Connect.prepare(connection, Boolean.TRUE, Boolean.TRUE, Boolean.TRUE);
     }
 }

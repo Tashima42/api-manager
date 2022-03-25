@@ -4,13 +4,14 @@
  */
 package com.tashima42.apimanager.repositories;
 
-import com.tashima42.apimanager.entities.Api;
+import com.tashima42.apimanager.entities.Team;
 import java.util.ArrayList;
 
 /**
  *
  * @author tashima
  */
-public interface IApiRepository {
-   ArrayList<Api> getAll();
+public interface ITeamRepository {
+    Team findByName(String name);
+    ArrayList<Team> getAll();
 }

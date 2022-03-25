@@ -4,7 +4,6 @@
  */
 package com.tashima42.apimanager.views.netbeansgui;
 
-import com.tashima42.apimanager.repositories.Sqlite.UserRepository;
 import com.tashima42.apimanager.views.Login;
 
 /**

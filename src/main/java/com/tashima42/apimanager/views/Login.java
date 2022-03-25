@@ -4,17 +4,17 @@
  */
 package com.tashima42.apimanager.views;
 
-import com.tashima42.apimanager.repositories.Sqlite.UserRepository;
+import com.tashima42.apimanager.repositories.Sqlite.EmployeeRepository;
 
 /**
  *
  * @author tashima
  */
 public class Login {
-    private final UserRepository userRepository;
+    private final EmployeeRepository employeeRepository;
 
     public Login() {
-        this.userRepository = new UserRepository();
+        this.employeeRepository = new EmployeeRepository();
     }
     
     public Boolean login(String name, String password) {
@@ -25,8 +25,8 @@ public class Login {
             throw new Error("Password is mandatory for login");
         }
         try {
-            String userPassword = this.userRepository.findByName(name).getPassword();
-            return password.equals(userPassword);
+            String employeePassword = this.employeeRepository.findByName(name).getPassword();
+            return password.equals(employeePassword);
         } catch(Error e) {
             System.out.println(e.getMessage());
         }

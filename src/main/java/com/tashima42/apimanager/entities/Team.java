@@ -2,22 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.tashima42.apimanager.main;
+package com.tashima42.apimanager.entities;
 
 /**
  *
  * @author tashima
  */
-public class Api {
+public class Team {
     private String name;
-    private String description;
-    private User owner;
-    private Team team;
+    private Employee owner;
     
-    public Api(String name, String description, User owner, Team team) {
+    public Team(String name, Employee owner) {
         this.name = name;
-        this.description = description;
         this.owner = owner;
-        this.team = team;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Employee getOwner() {
+        return this.owner;
     }
 }

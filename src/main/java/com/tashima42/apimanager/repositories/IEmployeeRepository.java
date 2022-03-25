@@ -4,12 +4,14 @@
  */
 package com.tashima42.apimanager.repositories;
 
-import com.tashima42.apimanager.main.User;
+import com.tashima42.apimanager.entities.Employee;
+import java.util.ArrayList;
 
 /**
  *
  * @author tashima
  */
-public interface IUserRepository {
-    User findByName(String name);
+public interface IEmployeeRepository {
+    Employee findByName(String name);
+    ArrayList<Employee> getAll();
 }

@@ -4,9 +4,9 @@
  */
 package com.tashima42.apimanager.repositories.Sqlite;
 
-import com.tashima42.apimanager.main.Api;
-import com.tashima42.apimanager.main.Team;
-import com.tashima42.apimanager.main.User;
+import com.tashima42.apimanager.entities.Api;
+import com.tashima42.apimanager.entities.Team;
+import com.tashima42.apimanager.entities.Employee;
 import com.tashima42.apimanager.repositories.IApiRepository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,8 +27,8 @@ public class ApiRepository implements IApiRepository {
 
     @Override
     public ArrayList<Api> getAll() {
-        String sql = "SELECT api.name AS name, api.description, user.name AS owner, team.name AS team \n"
-                + "FROM api JOIN user, team WHERE api.owner = user.id AND api.team = team.id LIMIT 1;";
+        String sql = "SELECT api.name AS name, api.description, employee.name AS owner, team.name AS team \n"
+                + "FROM api JOIN employee, team WHERE api.owner = employee.id AND api.team = team.id;";
         ArrayList<Api> apis = new ArrayList<>();
         try ( PreparedStatement ptsmt = this.conn.prepareStatement(sql)) {
             ResultSet res = ptsmt.executeQuery();
@@ -39,7 +39,7 @@ public class ApiRepository implements IApiRepository {
                 String ownerName = res.getString("owner");
                 String teamName = res.getString("team");
 
-                User owner = new User(ownerName, null, null);
+                Employee owner = new Employee(ownerName, null, null, null);
                 Team team = new Team(teamName, null);
                 Api api = new Api(apiName, apiDescription, owner, team);
                 System.out.println(api);
