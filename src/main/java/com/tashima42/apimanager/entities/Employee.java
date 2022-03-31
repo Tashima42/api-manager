@@ -14,12 +14,14 @@ public class Employee {
     private String role;
     private String description;
     private String password;
+    private Integer id;
 
-    public Employee(String name, String description, String role, String password) {
+    public Employee(String name, String description, String role, String password, Integer id) {
         this.name = name;
         this.description = description;
         this.role = role;
         this.password = password;
+        this.id = id;
     }
 
     public Employee(String name, String description, String role) {
@@ -37,5 +39,8 @@ public class Employee {
     }
     public String getPassword() {
         return this.password;
+    }
+    public Integer getId() {
+        return this.id;
     }
 }

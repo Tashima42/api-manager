@@ -25,16 +25,20 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public Employee findByName(String name) {
-        String sql = "SELECT name, role, password \n"
+    public Employee getByName(String employeeName) {
+        String sql = "SELECT id, name, role, password, description \n"
                 + "FROM employee where name = ?;";
         try ( PreparedStatement ptsmt = this.conn.prepareStatement(sql)) {
-            ptsmt.setString(1, name);
+            ptsmt.setString(1, employeeName);
             ResultSet res = ptsmt.executeQuery();
-            String employeeName = res.getString("name");
-            String employeeRole = res.getString("role");
-            String employeePassword = res.getString("password");
-            Employee employee = new Employee(employeeName, employeeRole, employeePassword);
+
+            String name = res.getString("name");
+            String role = res.getString("role");
+            String password = res.getString("password");
+            String description = res.getString("description");
+            Integer id = res.getInt("id");
+
+            Employee employee = new Employee(name, description, role, password, id);
             return employee;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -44,8 +48,8 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public ArrayList<Employee> getAll() {
-        String sql = "SELECT name, description, role FROM employee;";
-        
+        String sql = "SELECT name, description, role, password, id FROM employee;";
+
         ArrayList<Employee> employees = new ArrayList<>();
         try ( PreparedStatement ptsmt = this.conn.prepareStatement(sql)) {
             ResultSet res = ptsmt.executeQuery();
@@ -54,9 +58,11 @@ public class EmployeeRepository implements IEmployeeRepository {
                 String name = res.getString("name");
                 String description = res.getString("description");
                 String role = res.getString("role");
-                
-                Employee employee = new Employee(name, description, role, null);
-                
+                String password = res.getString("password");
+                Integer id = res.getInt("id");
+
+                Employee employee = new Employee(name, description, role, password, id);
+
                 employees.add(employee);
             }
             return employees;
@@ -66,4 +72,39 @@ public class EmployeeRepository implements IEmployeeRepository {
         }
     }
 
+    @Override
+    public ArrayList<String> getNames() {
+        String sql = "SELECT name FROM employee;";
+        ArrayList<String> names = new ArrayList<String>();
+        try ( PreparedStatement ptsmt = this.conn.prepareStatement(sql)) {
+            ResultSet res = ptsmt.executeQuery();
+
+            while (res.next()) {
+                String name = res.getString("name");
+                names.add(name);
+            }
+            return names;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new Error("Failed to get employee names");
+        }
+    }
+    
+    @Override
+    public ArrayList<Integer> getIds() {
+        String sql = "SELECT id FROM employee;";
+        ArrayList<Integer> ids = new ArrayList<>();
+        try ( PreparedStatement ptsmt = this.conn.prepareStatement(sql)) {
+            ResultSet res = ptsmt.executeQuery();
+
+            while (res.next()) {
+                Integer id = res.getInt("id");
+                ids.add(id);
+            }
+            return ids;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new Error("Failed to get employee ids");
+        }
+    }
 }

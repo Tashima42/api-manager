@@ -12,6 +12,8 @@ import java.util.ArrayList;
  * @author tashima
  */
 public interface IEmployeeRepository {
-    Employee findByName(String name);
+    Employee getByName(String name);
     ArrayList<Employee> getAll();
+    ArrayList<String> getNames();
+    ArrayList<Integer> getIds();
 }

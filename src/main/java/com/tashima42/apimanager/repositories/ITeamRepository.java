@@ -12,6 +12,8 @@ import java.util.ArrayList;
  * @author tashima
  */
 public interface ITeamRepository {
-    Team findByName(String name);
+    Team getByName(String teamName);
     ArrayList<Team> getAll();
+    ArrayList<String> getNames();
+    ArrayList<Integer> getIds();
 }

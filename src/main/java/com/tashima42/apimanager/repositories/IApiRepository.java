@@ -13,4 +13,8 @@ import java.util.ArrayList;
  */
 public interface IApiRepository {
    ArrayList<Api> getAll();
+   ArrayList<String> getNames();
+   ArrayList<Integer> getIds();
+   void update(Api api);
+   void addApi(Api api);
 }

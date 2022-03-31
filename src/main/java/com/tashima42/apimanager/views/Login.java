@@ -25,7 +25,7 @@ public class Login {
             throw new Error("Password is mandatory for login");
         }
         try {
-            String employeePassword = this.employeeRepository.findByName(name).getPassword();
+            String employeePassword = this.employeeRepository.getByName(name).getPassword();
             return password.equals(employeePassword);
         } catch(Error e) {
             System.out.println(e.getMessage());

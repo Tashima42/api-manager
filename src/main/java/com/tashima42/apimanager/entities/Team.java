@@ -10,18 +10,28 @@ package com.tashima42.apimanager.entities;
  */
 public class Team {
     private String name;
-    private Employee owner;
+    private String description;
+    private Employee manager;
+    private Integer id;
     
-    public Team(String name, Employee owner) {
+    
+    public Team(String name, String description, Employee manager, Integer id) {
         this.name = name;
-        this.owner = owner;
+        this.description = description;
+        this.manager = manager;
+        this.id = id;
     }
 
     public String getName() {
         return this.name;
     }
-
-    public Employee getOwner() {
-        return this.owner;
+    public String getDescription() {
+        return this.description;
+    }
+    public Employee getManager() {
+        return this.manager;
+    }
+    public Integer getId() {
+        return this.id;
     }
 }

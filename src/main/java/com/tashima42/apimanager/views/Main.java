@@ -6,8 +6,10 @@ package com.tashima42.apimanager.views;
 
 import com.tashima42.apimanager.entities.Api;
 import com.tashima42.apimanager.entities.Employee;
+import com.tashima42.apimanager.entities.Team;
 import com.tashima42.apimanager.repositories.Sqlite.ApiRepository;
 import com.tashima42.apimanager.repositories.Sqlite.EmployeeRepository;
+import com.tashima42.apimanager.repositories.Sqlite.TeamRepository;
 import java.util.ArrayList;
 
 /**
@@ -18,52 +20,101 @@ public class Main {
 
     private final ApiRepository apiRepository;
     private final EmployeeRepository employeeRepository;
+    private final TeamRepository teamRepository;
 
     public Main() {
         this.apiRepository = new ApiRepository();
         this.employeeRepository = new EmployeeRepository();
+        this.teamRepository = new TeamRepository();
     }
 
     public Object[][] getApisInfo() {
         ArrayList<Api> apis = apiRepository.getAll();
-        Object[][] apisTableInfo = new Object[apis.size()][4];
+        Object[][] apisTableInfo = new Object[apis.size()][7];
 
         for (int i = 0; i < apis.size(); i++) {
             Api api = apis.get(i);
-
-            apisTableInfo[i][0] = api.getName();
-            apisTableInfo[i][1] = api.getDescription();
-            apisTableInfo[i][2] = api.getTeam().getName();
-            apisTableInfo[i][3] = api.getOwner().getName();
+            
+            apisTableInfo[i][0] = api.getId();
+            apisTableInfo[i][1] = api.getName();
+            apisTableInfo[i][2] = api.getDescription();
+            apisTableInfo[i][3] = api.getTeam().getName();
+            apisTableInfo[i][4] = api.getOwner().getName();
+            apisTableInfo[i][5] = api.getOwner();
+            apisTableInfo[i][6] = api.getTeam();
         }
 
         return apisTableInfo;
     }
-    
-    
+
     public Object[][] getTeamsInfo() {
-        Object[][] teams = new Object[][]{
-                {"Alpha", "User specialists", "Mathias"},
-                {"Bravo", "Payment warriors", "Federico"},
-                {"Charlie", "Security nerds", "Fábio"},
-                {"Delta", "Marketing providers", "José"},
-                {"Echo", "Downtime kings ", "Fernando"}
-        };
-        return teams;
+        ArrayList<Team> teams = teamRepository.getAll();
+        Object[][] teamsTableInfo = new Object[teams.size()][5];
+
+        for (int i = 0; i < teams.size(); i++) {
+            Team team = teams.get(i);
+
+            teamsTableInfo[i][0] = team.getId();
+            teamsTableInfo[i][1] = team.getName();
+            teamsTableInfo[i][2] = team.getDescription();
+            teamsTableInfo[i][3] = team.getManager().getName();
+            teamsTableInfo[i][4] = team.getManager();
+        }
+
+        return teamsTableInfo;
     }
 
     public Object[][] getEmployeesInfo() {
         ArrayList<Employee> employees = employeeRepository.getAll();
-        Object[][] employeesTableInfo = new Object[employees.size()][3];
+        Object[][] employeesTableInfo = new Object[employees.size()][4];
 
         for (int i = 0; i < employees.size(); i++) {
             Employee employee = employees.get(i);
 
-            employeesTableInfo[i][0] = employee.getName();
-            employeesTableInfo[i][1] = employee.getDescription();
-            employeesTableInfo[i][2] = employee.getRole();
+            employeesTableInfo[i][0] = employee.getId();
+            employeesTableInfo[i][1] = employee.getName();
+            employeesTableInfo[i][2] = employee.getDescription();
+            employeesTableInfo[i][3] = employee.getRole();
         }
 
         return employeesTableInfo;
+    }
+    
+    public String[] getTeamNames() {
+        ArrayList<String> namesList = teamRepository.getNames();
+        String[] names = new String[namesList.size()];
+        namesList.toArray(names);
+        return names;
+    }
+    
+    public String[] getEmployeeNames() {
+        ArrayList<String> namesList = employeeRepository.getNames();
+        String[] names = new String[namesList.size()];
+        namesList.toArray(names);
+        return names;
+    }
+    
+    public Integer[] getApiIds() {
+        ArrayList<Integer> idsList = apiRepository.getIds();
+        Integer[] ids = new Integer[idsList.size()];
+        idsList.toArray(ids);
+        
+        return ids;
+    }
+    
+    public void updateApiInfo(Api api) {
+         apiRepository.update(api);
+    }
+    
+    public Employee getEmployeeByName(String name) {
+        return employeeRepository.getByName(name);
+    }
+    
+    public Team getTeamByName(String name) {
+        return teamRepository.getByName(name);
+    }
+    
+    public void addApi(Api api) {
+        apiRepository.addApi(api);
     }
 }

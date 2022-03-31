@@ -13,12 +13,14 @@ public class Api {
     private String description;
     private Employee owner;
     private Team team;
+    private Integer id;
     
-    public Api(String name, String description, Employee owner, Team team) {
+    public Api(String name, String description, Employee owner, Team team, Integer id) {
         this.name = name;
         this.description = description;
         this.owner = owner;
         this.team = team;
+        this.id = id;
     }
     
     public String getName() {
@@ -32,5 +34,8 @@ public class Api {
     }
     public Team getTeam() {
         return this.team;
+    }
+    public Integer getId() {
+        return this.id;
     }
 }

@@ -97,7 +97,8 @@ public class Connect {
         String sql = "CREATE TABLE IF NOT EXISTS team(\n"
                 + "     id integer PRIMARY KEY,\n"
                 + "     name text NOT NULL UNIQUE,\n"
-                + "     description text NOT NULL\n"
+                + "     description text NOT NULL,\n"
+                + "     manager integer NOT NULL\n"
                 + ");";
         try ( Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
@@ -200,7 +201,7 @@ public class Connect {
     }
 
     private static void populateTeam(Connection conn) {
-        String sql = "INSERT INTO team (name, description, owner)\n"
+        String sql = "INSERT INTO team (name, description, manager)\n"
                 + "     VALUES (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?), (?, ?, ?);";
 
         try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
