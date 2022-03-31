@@ -42,7 +42,7 @@ public class EmployeeRepository implements IEmployeeRepository {
             return employee;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            throw new Error("Employee not found");
+            return null;
         }
     }
 

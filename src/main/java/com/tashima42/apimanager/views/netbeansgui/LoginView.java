@@ -19,6 +19,9 @@ public class LoginView extends javax.swing.JFrame {
     public LoginView() {
         loginPage = new Login();
         this.setLocationRelativeTo(null);
+        
+        errorMessageDialog.setSize(440, 200);
+        
         initComponents();
     }
 
@@ -31,8 +34,9 @@ public class LoginView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        errorMessageDialog = new javax.swing.JDialog();
+        errorMessageLabel = new javax.swing.JLabel();
+        errorMessageButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         loginLabel = new javax.swing.JLabel();
         userNameLabel = new javax.swing.JLabel();
@@ -41,9 +45,43 @@ public class LoginView extends javax.swing.JFrame {
         userPasswordLabel = new javax.swing.JLabel();
         loginButton = new javax.swing.JButton();
 
-        jButton1.setText("jButton1");
+        errorMessageLabel.setText("message");
 
-        jButton2.setText("jButton2");
+        errorMessageButton.setText("OK");
+        errorMessageButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                errorMessageButtonMouseClicked(evt);
+            }
+        });
+        errorMessageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                errorMessageButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout errorMessageDialogLayout = new javax.swing.GroupLayout(errorMessageDialog.getContentPane());
+        errorMessageDialog.getContentPane().setLayout(errorMessageDialogLayout);
+        errorMessageDialogLayout.setHorizontalGroup(
+            errorMessageDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(errorMessageDialogLayout.createSequentialGroup()
+                .addGroup(errorMessageDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(errorMessageDialogLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(errorMessageLabel))
+                    .addGroup(errorMessageDialogLayout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(errorMessageButton)))
+                .addContainerGap(261, Short.MAX_VALUE))
+        );
+        errorMessageDialogLayout.setVerticalGroup(
+            errorMessageDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(errorMessageDialogLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(errorMessageLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(errorMessageButton)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,12 +176,20 @@ public class LoginView extends javax.swing.JFrame {
             if (credentialsAreValid) {
                 new MainView().setVisible(true);
                 this.dispose();
+            } else {
+                showErrorMessage("Invalid Password or Employee Name, please try again");
             }
         } catch (Error e) {
+            showErrorMessage(e.getMessage());
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
+    private void showErrorMessage(String message) {
+        errorMessageLabel.setText(message);
+        errorMessageDialog.setVisible(true);
+    }
+    
     private void userPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userPasswordActionPerformed
@@ -151,6 +197,14 @@ public class LoginView extends javax.swing.JFrame {
     private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userNameActionPerformed
+
+    private void errorMessageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_errorMessageButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_errorMessageButtonActionPerformed
+
+    private void errorMessageButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_errorMessageButtonMouseClicked
+       errorMessageDialog.dispose();
+    }//GEN-LAST:event_errorMessageButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -191,8 +245,9 @@ public class LoginView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton errorMessageButton;
+    private javax.swing.JDialog errorMessageDialog;
+    private javax.swing.JLabel errorMessageLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginLabel;

@@ -5,7 +5,7 @@
 package com.tashima42.apimanager.views;
 
 import com.tashima42.apimanager.repositories.Sqlite.EmployeeRepository;
-
+import com.tashima42.apimanager.entities.Employee;
 /**
  *
  * @author tashima
@@ -18,14 +18,20 @@ public class Login {
     }
     
     public Boolean login(String name, String password) {
-        if(name == null) {
+        if(name.isEmpty()) {
             throw new Error("Name is mandatory for login");
         }
-        if(password == null) {
+        if(password.isEmpty()) {
             throw new Error("Password is mandatory for login");
         }
         try {
-            String employeePassword = this.employeeRepository.getByName(name).getPassword();
+            Employee employee = this.employeeRepository.getByName(name);
+            
+            if(employee == null) {
+                throw new Error("Invalid Employee Name");
+            }
+            String employeePassword = employee.getPassword();
+            
             return password.equals(employeePassword);
         } catch(Error e) {
             System.out.println(e.getMessage());
