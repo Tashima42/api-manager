@@ -47,15 +47,15 @@ public class TeamRepository implements ITeamRepository {
             Integer id = res.getInt("id");
             String name = res.getString("name");
             String description = res.getString("description");
-            
+
             Integer managerId = res.getInt("manager_id");
             String managerName = res.getString("manager_name");
             String managerDescription = res.getString("manager_description");
             String managerPassword = res.getString("manager_password");
-            String managerRole = res.getString("manager_role");          
+            String managerRole = res.getString("manager_role");
 
             Employee manager = new Employee(managerName, managerDescription, managerRole, managerPassword, managerId);
-            
+
             return new Team(name, description, manager, id);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -139,6 +139,59 @@ public class TeamRepository implements ITeamRepository {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             throw new Error("Failed to get team ids");
+        }
+    }
+
+    @Override
+    public void removeTeam(Integer id) {
+        String sql = "DELETE FROM team WHERE id = ?";
+        try ( PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to remove TEAM");
+        }
+    }
+
+    @Override
+    public void update(Team team) {
+        String sql = "UPDATE team"
+                + "     SET"
+                + "     name = ?,"
+                + "     description = ?,"
+                + "     manager = ?"
+                + "     WHERE id = ?;";
+
+        try ( PreparedStatement ptsmt = this.conn.prepareStatement(sql)) {
+            ptsmt.setString(1, team.getName());
+            ptsmt.setString(2, team.getDescription());
+            ptsmt.setInt(3, team.getManager().getId());
+            ptsmt.setInt(4, team.getId());
+
+            ptsmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new Error("Failed to update team");
+        }
+    }
+
+    @Override
+    public void addTeam(Team team) {
+        String sql = "INSERT INTO team\n"
+                + "     (name, description, manager)\n"
+                + "     VALUES (?, ?, ?);";
+
+        try ( PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setString(1, team.getName());
+            pstmt.setString(2, team.getDescription());
+            pstmt.setInt(3, team.getManager().getId());
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to add team");
         }
     }
 }

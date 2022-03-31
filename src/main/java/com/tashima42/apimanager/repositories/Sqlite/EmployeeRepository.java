@@ -107,4 +107,59 @@ public class EmployeeRepository implements IEmployeeRepository {
             throw new Error("Failed to get employee ids");
         }
     }
+    @Override
+    public void removeEmployee(Integer id) {
+        String sql = "DELETE FROM employee WHERE id = ?";
+        try ( PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to remove EMPLOYEE");
+        }
+    }
+
+    @Override
+    public void update(Employee employee) {
+        String sql = "UPDATE employee"
+                + "     SET"
+                + "     name = ?,"
+                + "     description = ?,"
+                + "     password = ?,"
+                + "     role = ?"
+                + "     WHERE id = ?;";
+
+        try ( PreparedStatement ptsmt = this.conn.prepareStatement(sql)) {
+            ptsmt.setString(1, employee.getName());
+            ptsmt.setString(2, employee.getDescription());
+            ptsmt.setString(3, employee.getPassword());
+            ptsmt.setString(4, employee.getRole());
+            ptsmt.setInt(5, employee.getId());
+
+            ptsmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new Error("Failed to update employee");
+        }
+    }
+
+    @Override
+    public void addEmployee(Employee employee) {
+        String sql = "INSERT INTO employee\n"
+                + "     (name, description, password, role)\n"
+                + "     VALUES (?, ?, ?, ?);";
+
+        try ( PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setString(1, employee.getName());
+            pstmt.setString(2, employee.getDescription());
+            pstmt.setString(3, employee.getPassword());
+            pstmt.setString(4, employee.getRole());
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to add employee");
+        }
+    }
 }

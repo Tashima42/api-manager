@@ -66,7 +66,7 @@ public class Main {
 
     public Object[][] getEmployeesInfo() {
         ArrayList<Employee> employees = employeeRepository.getAll();
-        Object[][] employeesTableInfo = new Object[employees.size()][4];
+        Object[][] employeesTableInfo = new Object[employees.size()][5];
 
         for (int i = 0; i < employees.size(); i++) {
             Employee employee = employees.get(i);
@@ -75,6 +75,7 @@ public class Main {
             employeesTableInfo[i][1] = employee.getName();
             employeesTableInfo[i][2] = employee.getDescription();
             employeesTableInfo[i][3] = employee.getRole();
+            employeesTableInfo[i][4] = employee.getPassword();
         }
 
         return employeesTableInfo;
@@ -120,5 +121,29 @@ public class Main {
     
     public void removeApi(Integer id) {
         apiRepository.removeApi(id);
+    }
+    
+    public void removeTeam(Integer id) {
+        teamRepository.removeTeam(id);
+    }
+    
+    public void updateTeamInfo(Team team) {
+        teamRepository.update(team);
+    }
+    
+    public void addTeam(Team team) {
+        teamRepository.addTeam(team);
+    }
+    
+    public void updateEmployeeInfo(Employee employee) {
+        employeeRepository.update(employee);
+    }
+    
+    public void addEmployee(Employee employee) {
+        employeeRepository.addEmployee(employee);
+    }
+    
+    public void removeEmployee(Integer id) {
+        employeeRepository.removeEmployee(id);
     }
 }

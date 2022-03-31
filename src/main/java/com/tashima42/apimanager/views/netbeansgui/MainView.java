@@ -30,8 +30,16 @@ public class MainView extends javax.swing.JFrame {
         setEmployeesTable();
 
         editApiDialog.setSize(280, 340);
+        editTeamDialog.setSize(280, 280);
+        editEmployeeDialog.setSize(280, 320);
+        addTeamDialog.setSize(280, 280);
+        addEmployeeDialog.setSize(280, 300);
         messageDialog.setSize(440, 200);
         addApiDialog.setSize(262, 320);
+
+        DefaultComboBoxModel<String> rolesModel = new DefaultComboBoxModel<>(new String[]{"MANAGER", "DEVELOPER"});
+        employeeEditRoleComboBox.setModel(rolesModel);
+        employeeAddRoleComboBox.setModel(rolesModel);
     }
 
     /**
@@ -70,6 +78,50 @@ public class MainView extends javax.swing.JFrame {
         apiAddOwnerLabel = new javax.swing.JLabel();
         apiAddCancelButton = new javax.swing.JButton();
         apiAddSaveButton = new javax.swing.JButton();
+        editTeamDialog = new javax.swing.JDialog();
+        teamEditManagerComboBox = new javax.swing.JComboBox<>();
+        teamEditNameField = new javax.swing.JTextField();
+        teamEditNameLabel = new javax.swing.JLabel();
+        teamEditDescriptionLabel = new javax.swing.JLabel();
+        teamEditDescriptionField = new javax.swing.JTextField();
+        teamEditManagerLabel = new javax.swing.JLabel();
+        apiEditCancelButton1 = new javax.swing.JButton();
+        apiEditSaveButton1 = new javax.swing.JButton();
+        teamEditIdLabel = new javax.swing.JLabel();
+        teamEditIdLabelCurrent = new javax.swing.JLabel();
+        addTeamDialog = new javax.swing.JDialog();
+        teamAddManagerComboBox = new javax.swing.JComboBox<>();
+        teamAddNameField = new javax.swing.JTextField();
+        teamAddNameLabel = new javax.swing.JLabel();
+        teamAddDescriptionLabel = new javax.swing.JLabel();
+        teamAddDescriptionField = new javax.swing.JTextField();
+        teamAddManagerLabel = new javax.swing.JLabel();
+        teamAddCancelButton = new javax.swing.JButton();
+        teamAddSaveButton = new javax.swing.JButton();
+        editEmployeeDialog = new javax.swing.JDialog();
+        employeeEditRoleComboBox = new javax.swing.JComboBox<>();
+        employeeEditNameField = new javax.swing.JTextField();
+        employeeEditNameLabel = new javax.swing.JLabel();
+        employeeEditDescriptionLabel = new javax.swing.JLabel();
+        employeeEditDescriptionField = new javax.swing.JTextField();
+        employeeEditRoleLabel = new javax.swing.JLabel();
+        employeeEditCancelButton = new javax.swing.JButton();
+        employeeEditSaveButton = new javax.swing.JButton();
+        employeeEditIdLabel = new javax.swing.JLabel();
+        employeeEditIdLabelCurrent = new javax.swing.JLabel();
+        employeeEditPasswordLabel = new javax.swing.JLabel();
+        employeeEditPasswordField = new javax.swing.JTextField();
+        addEmployeeDialog = new javax.swing.JDialog();
+        employeeAddRoleComboBox = new javax.swing.JComboBox<>();
+        employeeAddNameField = new javax.swing.JTextField();
+        employeeAddNameLabel = new javax.swing.JLabel();
+        employeeAddDescriptionLabel = new javax.swing.JLabel();
+        employeeAddDescriptionField = new javax.swing.JTextField();
+        employeeAddRoleLabel = new javax.swing.JLabel();
+        employeeAddCancelButton = new javax.swing.JButton();
+        employeeAddSaveButton = new javax.swing.JButton();
+        employeeAddPasswordLabel = new javax.swing.JLabel();
+        employeeAddPasswordField = new javax.swing.JTextField();
         tabs = new javax.swing.JTabbedPane();
         apiPanel = new javax.swing.JPanel();
         apiScrollPanel = new javax.swing.JScrollPane();
@@ -338,6 +390,379 @@ public class MainView extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
+        teamEditManagerComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamEditManagerComboBoxActionPerformed(evt);
+            }
+        });
+
+        teamEditNameLabel.setText("Name");
+
+        teamEditDescriptionLabel.setText("Description");
+
+        teamEditDescriptionField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamEditDescriptionFieldActionPerformed(evt);
+            }
+        });
+
+        teamEditManagerLabel.setText("Manager");
+
+        apiEditCancelButton1.setText("CANCEL");
+        apiEditCancelButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                apiEditCancelButton1MouseClicked(evt);
+            }
+        });
+
+        apiEditSaveButton1.setText("SALVAR");
+        apiEditSaveButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                apiEditSaveButton1MouseClicked(evt);
+            }
+        });
+        apiEditSaveButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apiEditSaveButton1ActionPerformed(evt);
+            }
+        });
+
+        teamEditIdLabel.setText("id:");
+
+        teamEditIdLabelCurrent.setText("0");
+
+        javax.swing.GroupLayout editTeamDialogLayout = new javax.swing.GroupLayout(editTeamDialog.getContentPane());
+        editTeamDialog.getContentPane().setLayout(editTeamDialogLayout);
+        editTeamDialogLayout.setHorizontalGroup(
+            editTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editTeamDialogLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(editTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editTeamDialogLayout.createSequentialGroup()
+                        .addComponent(teamEditIdLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(teamEditIdLabelCurrent))
+                    .addComponent(teamEditManagerLabel)
+                    .addComponent(teamEditNameLabel)
+                    .addGroup(editTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(editTeamDialogLayout.createSequentialGroup()
+                            .addComponent(apiEditCancelButton1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(apiEditSaveButton1))
+                        .addComponent(teamEditManagerComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(teamEditNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(teamEditDescriptionLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(teamEditDescriptionField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        editTeamDialogLayout.setVerticalGroup(
+            editTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editTeamDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(editTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(teamEditIdLabel)
+                    .addComponent(teamEditIdLabelCurrent))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamEditNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamEditNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamEditDescriptionLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamEditDescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamEditManagerLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamEditManagerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(editTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(apiEditCancelButton1)
+                    .addComponent(apiEditSaveButton1))
+                .addGap(10, 10, 10))
+        );
+
+        teamAddManagerComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamAddManagerComboBoxActionPerformed(evt);
+            }
+        });
+
+        teamAddNameLabel.setText("Name");
+
+        teamAddDescriptionLabel.setText("Description");
+
+        teamAddDescriptionField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamAddDescriptionFieldActionPerformed(evt);
+            }
+        });
+
+        teamAddManagerLabel.setText("Manager");
+
+        teamAddCancelButton.setText("CANCEL");
+        teamAddCancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                teamAddCancelButtonMouseClicked(evt);
+            }
+        });
+        teamAddCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamAddCancelButtonActionPerformed(evt);
+            }
+        });
+
+        teamAddSaveButton.setText("SALVAR");
+        teamAddSaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                teamAddSaveButtonMouseClicked(evt);
+            }
+        });
+        teamAddSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamAddSaveButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout addTeamDialogLayout = new javax.swing.GroupLayout(addTeamDialog.getContentPane());
+        addTeamDialog.getContentPane().setLayout(addTeamDialogLayout);
+        addTeamDialogLayout.setHorizontalGroup(
+            addTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addTeamDialogLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(addTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(teamAddManagerLabel)
+                    .addComponent(teamAddNameLabel)
+                    .addGroup(addTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(addTeamDialogLayout.createSequentialGroup()
+                            .addComponent(teamAddCancelButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(teamAddSaveButton))
+                        .addComponent(teamAddManagerComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(teamAddNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(teamAddDescriptionLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(teamAddDescriptionField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        addTeamDialogLayout.setVerticalGroup(
+            addTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addTeamDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(teamAddNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamAddNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamAddDescriptionLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamAddDescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamAddManagerLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(teamAddManagerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(addTeamDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(teamAddCancelButton)
+                    .addComponent(teamAddSaveButton))
+                .addGap(10, 10, 10))
+        );
+
+        employeeEditRoleComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeEditRoleComboBoxActionPerformed(evt);
+            }
+        });
+
+        employeeEditNameLabel.setText("Name");
+
+        employeeEditDescriptionLabel.setText("Description");
+
+        employeeEditDescriptionField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeEditDescriptionFieldActionPerformed(evt);
+            }
+        });
+
+        employeeEditRoleLabel.setText("Role");
+
+        employeeEditCancelButton.setText("CANCEL");
+        employeeEditCancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employeeEditCancelButtonMouseClicked(evt);
+            }
+        });
+
+        employeeEditSaveButton.setText("SALVAR");
+        employeeEditSaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employeeEditSaveButtonMouseClicked(evt);
+            }
+        });
+        employeeEditSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeEditSaveButtonActionPerformed(evt);
+            }
+        });
+
+        employeeEditIdLabel.setText("id:");
+
+        employeeEditIdLabelCurrent.setText("0");
+
+        employeeEditPasswordLabel.setText("Password");
+
+        employeeEditPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeEditPasswordFieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout editEmployeeDialogLayout = new javax.swing.GroupLayout(editEmployeeDialog.getContentPane());
+        editEmployeeDialog.getContentPane().setLayout(editEmployeeDialogLayout);
+        editEmployeeDialogLayout.setHorizontalGroup(
+            editEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editEmployeeDialogLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(editEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(employeeEditPasswordLabel)
+                    .addComponent(employeeEditPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(editEmployeeDialogLayout.createSequentialGroup()
+                        .addComponent(employeeEditIdLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(employeeEditIdLabelCurrent))
+                    .addComponent(employeeEditRoleLabel)
+                    .addComponent(employeeEditNameLabel)
+                    .addGroup(editEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(editEmployeeDialogLayout.createSequentialGroup()
+                            .addComponent(employeeEditCancelButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(employeeEditSaveButton))
+                        .addComponent(employeeEditRoleComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(employeeEditNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(employeeEditDescriptionLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(employeeEditDescriptionField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        editEmployeeDialogLayout.setVerticalGroup(
+            editEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editEmployeeDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(editEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(employeeEditIdLabel)
+                    .addComponent(employeeEditIdLabelCurrent))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeEditNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeEditNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeEditDescriptionLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeEditDescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeEditPasswordLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeEditPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(employeeEditRoleLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeEditRoleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(editEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(employeeEditCancelButton)
+                    .addComponent(employeeEditSaveButton))
+                .addGap(10, 10, 10))
+        );
+
+        employeeAddRoleComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeAddRoleComboBoxActionPerformed(evt);
+            }
+        });
+
+        employeeAddNameLabel.setText("Name");
+
+        employeeAddDescriptionLabel.setText("Description");
+
+        employeeAddDescriptionField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeAddDescriptionFieldActionPerformed(evt);
+            }
+        });
+
+        employeeAddRoleLabel.setText("Role");
+
+        employeeAddCancelButton.setText("CANCEL");
+        employeeAddCancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employeeAddCancelButtonMouseClicked(evt);
+            }
+        });
+
+        employeeAddSaveButton.setText("SALVAR");
+        employeeAddSaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employeeAddSaveButtonMouseClicked(evt);
+            }
+        });
+        employeeAddSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeAddSaveButtonActionPerformed(evt);
+            }
+        });
+
+        employeeAddPasswordLabel.setText("Password");
+
+        employeeAddPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeAddPasswordFieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout addEmployeeDialogLayout = new javax.swing.GroupLayout(addEmployeeDialog.getContentPane());
+        addEmployeeDialog.getContentPane().setLayout(addEmployeeDialogLayout);
+        addEmployeeDialogLayout.setHorizontalGroup(
+            addEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addEmployeeDialogLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(addEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(employeeAddPasswordLabel)
+                    .addComponent(employeeAddPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(employeeAddRoleLabel)
+                    .addComponent(employeeAddNameLabel)
+                    .addGroup(addEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(addEmployeeDialogLayout.createSequentialGroup()
+                            .addComponent(employeeAddCancelButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(employeeAddSaveButton))
+                        .addComponent(employeeAddRoleComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(employeeAddNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(employeeAddDescriptionLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(employeeAddDescriptionField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        addEmployeeDialogLayout.setVerticalGroup(
+            addEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addEmployeeDialogLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(employeeAddNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeAddNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeAddDescriptionLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeAddDescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeAddPasswordLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeAddPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(employeeAddRoleLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeAddRoleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(addEmployeeDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(employeeAddCancelButton)
+                    .addComponent(employeeAddSaveButton))
+                .addGap(10, 10, 10))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         apiTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -566,12 +991,27 @@ public class MainView extends javax.swing.JFrame {
         teamsMenu.setText("Teams");
 
         teamAddItem.setText("Add Team");
+        teamAddItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamAddItemActionPerformed(evt);
+            }
+        });
         teamsMenu.add(teamAddItem);
 
         teamEditItem.setText("Edit Team");
+        teamEditItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamEditItemActionPerformed(evt);
+            }
+        });
         teamsMenu.add(teamEditItem);
 
         teamRemoveItem.setText("Remove Team");
+        teamRemoveItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                teamRemoveItemActionPerformed(evt);
+            }
+        });
         teamsMenu.add(teamRemoveItem);
 
         editMenu.add(teamsMenu);
@@ -579,12 +1019,27 @@ public class MainView extends javax.swing.JFrame {
         employeesMenu.setText("Employees");
 
         employeeAddItem.setText("Add Employee");
+        employeeAddItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeAddItemActionPerformed(evt);
+            }
+        });
         employeesMenu.add(employeeAddItem);
 
         employeeEditItem.setText("Edit Employee");
+        employeeEditItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeEditItemActionPerformed(evt);
+            }
+        });
         employeesMenu.add(employeeEditItem);
 
         employeeRemoveItem.setText("Remove Employee");
+        employeeRemoveItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeRemoveItemActionPerformed(evt);
+            }
+        });
         employeesMenu.add(employeeRemoveItem);
 
         editMenu.add(employeesMenu);
@@ -627,6 +1082,7 @@ public class MainView extends javax.swing.JFrame {
 
     private void teamsEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamsEditButtonMouseClicked
         // TODO add your handling code here:
+        editTeamDialogHandler();
     }//GEN-LAST:event_teamsEditButtonMouseClicked
 
     private void teamsEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamsEditButtonActionPerformed
@@ -634,7 +1090,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_teamsEditButtonActionPerformed
 
     private void teamsAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamsAddButtonMouseClicked
-        // TODO add your handling code here:
+        addTeamDialogHandler();
     }//GEN-LAST:event_teamsAddButtonMouseClicked
 
     private void teamsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamsAddButtonActionPerformed
@@ -642,7 +1098,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_teamsAddButtonActionPerformed
 
     private void employeesEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesEditButtonMouseClicked
-        // TODO add your handling code here:
+        editEmployeeDialogHandler();
     }//GEN-LAST:event_employeesEditButtonMouseClicked
 
     private void employeesEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeesEditButtonActionPerformed
@@ -650,7 +1106,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_employeesEditButtonActionPerformed
 
     private void employeeAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAddButtonMouseClicked
-        // TODO add your handling code here:
+        addEmployeeDialogHandler();
     }//GEN-LAST:event_employeeAddButtonMouseClicked
 
     private void employeeAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeAddButtonActionPerformed
@@ -696,11 +1152,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_apiAddSaveButtonMouseClicked
 
     private void apiAddSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiAddSaveButtonActionPerformed
-        // TODO add your handling code here:
-        Api api = getApiFromAddDialog();
-        main.addApi(api);
-        addApiDialog.setVisible(false);
-        setApisTable();
+        saveAddedApi();
     }//GEN-LAST:event_apiAddSaveButtonActionPerformed
 
     private void apiEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiEditSaveButtonActionPerformed
@@ -708,11 +1160,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_apiEditSaveButtonActionPerformed
 
     private void apiEditSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiEditSaveButtonMouseClicked
-        // TODO add your handling code here:
-        Api api = getApiFromEditDialog();
-        main.updateApiInfo(api);
-        editApiDialog.setVisible(false);
-        setApisTable();
+        saveEditedApi();
     }//GEN-LAST:event_apiEditSaveButtonMouseClicked
 
     private void apiEditCancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiEditCancelButtonMouseClicked
@@ -745,6 +1193,122 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
         removeApi();
     }//GEN-LAST:event_removeApiItemActionPerformed
+
+    private void teamEditManagerComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamEditManagerComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_teamEditManagerComboBoxActionPerformed
+
+    private void teamEditDescriptionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamEditDescriptionFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_teamEditDescriptionFieldActionPerformed
+
+    private void apiEditCancelButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiEditCancelButton1MouseClicked
+        editTeamDialog.setVisible(false);
+    }//GEN-LAST:event_apiEditCancelButton1MouseClicked
+
+    private void apiEditSaveButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiEditSaveButton1MouseClicked
+        saveEditedTeam();
+    }//GEN-LAST:event_apiEditSaveButton1MouseClicked
+
+    private void apiEditSaveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiEditSaveButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apiEditSaveButton1ActionPerformed
+
+    private void teamEditItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamEditItemActionPerformed
+        editTeamDialogHandler();
+    }//GEN-LAST:event_teamEditItemActionPerformed
+
+    private void teamAddManagerComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamAddManagerComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_teamAddManagerComboBoxActionPerformed
+
+    private void teamAddDescriptionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamAddDescriptionFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_teamAddDescriptionFieldActionPerformed
+
+    private void teamAddCancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamAddCancelButtonMouseClicked
+        editTeamDialog.setVisible(false);
+    }//GEN-LAST:event_teamAddCancelButtonMouseClicked
+
+    private void teamAddCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamAddCancelButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_teamAddCancelButtonActionPerformed
+
+    private void teamAddSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamAddSaveButtonMouseClicked
+        saveAddedTeam();
+    }//GEN-LAST:event_teamAddSaveButtonMouseClicked
+
+    private void teamAddSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamAddSaveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_teamAddSaveButtonActionPerformed
+
+    private void teamAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamAddItemActionPerformed
+        addTeamDialogHandler();
+    }//GEN-LAST:event_teamAddItemActionPerformed
+
+    private void teamRemoveItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamRemoveItemActionPerformed
+        removeTeam();
+    }//GEN-LAST:event_teamRemoveItemActionPerformed
+
+    private void employeeEditDescriptionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeEditDescriptionFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeEditDescriptionFieldActionPerformed
+
+    private void employeeEditCancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeEditCancelButtonMouseClicked
+        editEmployeeDialog.setVisible(false);
+    }//GEN-LAST:event_employeeEditCancelButtonMouseClicked
+
+    private void employeeEditSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeEditSaveButtonMouseClicked
+        saveEditedEmployee();
+    }//GEN-LAST:event_employeeEditSaveButtonMouseClicked
+
+    private void employeeEditSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeEditSaveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeEditSaveButtonActionPerformed
+
+    private void employeeEditRoleComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeEditRoleComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeEditRoleComboBoxActionPerformed
+
+    private void employeeEditPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeEditPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeEditPasswordFieldActionPerformed
+
+    private void employeeEditItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeEditItemActionPerformed
+        editEmployeeDialogHandler();
+    }//GEN-LAST:event_employeeEditItemActionPerformed
+
+    private void employeeAddPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeAddPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeAddPasswordFieldActionPerformed
+
+    private void employeeAddSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeAddSaveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeAddSaveButtonActionPerformed
+
+    private void employeeAddSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAddSaveButtonMouseClicked
+        saveAddedEmployee();
+    }//GEN-LAST:event_employeeAddSaveButtonMouseClicked
+
+    private void employeeAddCancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAddCancelButtonMouseClicked
+        addEmployeeDialog.setVisible(false);
+    }//GEN-LAST:event_employeeAddCancelButtonMouseClicked
+
+    private void employeeAddDescriptionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeAddDescriptionFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeAddDescriptionFieldActionPerformed
+
+    private void employeeAddRoleComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeAddRoleComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeAddRoleComboBoxActionPerformed
+
+    private void employeeAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeAddItemActionPerformed
+        addEmployeeDialogHandler();
+    }//GEN-LAST:event_employeeAddItemActionPerformed
+
+    private void employeeRemoveItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeRemoveItemActionPerformed
+        removeEmployee();
+    }//GEN-LAST:event_employeeRemoveItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -784,6 +1348,7 @@ public class MainView extends javax.swing.JFrame {
         });
     }
 
+    // TABLES
     private void setApisTable() {
         Object[][] apis = this.main.getApisInfo();
         apiTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -851,12 +1416,12 @@ public class MainView extends javax.swing.JFrame {
         Object[][] employees = this.main.getEmployeesInfo();
         employeesTable.setModel(new javax.swing.table.DefaultTableModel(
                 employees,
-                new String[]{"Id", "Name", "Description", "Role"}) {
+                new String[]{"Id", "Name", "Description", "Role", "Password"}) {
             Class[] types = new Class[]{
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean[]{
-                false, false, false, false,};
+                false, false, false, false, false};
 
             @Override
             public Class getColumnClass(int columnIndex) {
@@ -868,10 +1433,14 @@ public class MainView extends javax.swing.JFrame {
                 return canEdit[columnIndex];
             }
         });
+        employeesTable.removeColumn(employeesTable.getColumn("Password"));
     }
 
     ;
      
+     /** API HANDLERS AND HELPERS **/
+     
+     // API HANDLERS
      private void editApiDialogHandler() {
         Api api = null;
         Integer selectedApiIdIndex = apiTable.getSelectedRow();
@@ -902,8 +1471,9 @@ public class MainView extends javax.swing.JFrame {
         addApiDialog.setVisible(true);
     }
 
+    // API SETTERS AND GETTERS FROM UI
     private void setApiEditDialogInformation(Api api, String[] teamNames, String[] employeeNames) {
-        apiEditIdLabel.setText(api.getId().toString());
+        apiEditIdLabelCurrent.setText(api.getId().toString());
         apiEditNameField.setText(api.getName());
         apiEditDescriptionField.setText(api.getDescription());
 
@@ -927,7 +1497,7 @@ public class MainView extends javax.swing.JFrame {
     }
 
     private Api getApiFromEditDialog() {
-        Integer id = Integer.parseInt(apiEditIdLabel.getText());
+        Integer id = Integer.parseInt(apiEditIdLabelCurrent.getText());
         Team team = main.getTeamByName(apiEditTeamComboBox.getSelectedItem().toString());
         Employee owner = main.getEmployeeByName(apiEditOwnerComboBox.getSelectedItem().toString());
         String name = apiEditNameField.getText();
@@ -963,13 +1533,8 @@ public class MainView extends javax.swing.JFrame {
         apiAddOwnerComboBox.setModel(employeesModel);
     }
 
-    private void showDialogWithMessage(String message) {
-        messageDialogLabel.setText(message);
-        messageDialog.setVisible(true);
-    }
-
+    // API OPERATION HELPERS
     private void removeApi() {
-        System.out.println("REMOVE");
         Integer selectedApiIdIndex = apiTable.getSelectedRow();
 
         if (selectedApiIdIndex >= 0) {
@@ -981,9 +1546,234 @@ public class MainView extends javax.swing.JFrame {
         }
     }
 
+    private void saveEditedApi() {
+        Api api = getApiFromEditDialog();
+        main.updateApiInfo(api);
+        editApiDialog.setVisible(false);
+        setApisTable();
+    }
+
+    private void saveAddedApi() {
+        Api api = getApiFromAddDialog();
+        main.addApi(api);
+        addApiDialog.setVisible(false);
+        setApisTable();
+    }
+
+    /**
+     * TEAM HANDLERS AND HELPERS *
+     */
+    // TEAM HANDLERS
+    private void editTeamDialogHandler() {
+        Team team = null;
+        Integer selectedTeamIdIndex = teamsTable.getSelectedRow();
+
+        String[] employeeNames = main.getEmployeeNames();
+
+        setEditTeamComboBoxes(employeeNames);
+
+        if (selectedTeamIdIndex >= 0) {
+            team = getTeamFromTable(selectedTeamIdIndex);
+        } else {
+            showDialogWithMessage("To edit a Team, please select it on the table and click the 'EDIT' button");
+            return;
+        }
+        if (team != null) {
+            setTeamEditDialogInformation(team, employeeNames);
+        }
+
+        editTeamDialog.setVisible(true);
+    }
+
+    private void addTeamDialogHandler() {
+        String[] employeeNames = main.getEmployeeNames();
+
+        setAddTeamComboBoxes(employeeNames);
+        addTeamDialog.setVisible(true);
+    }
+
+    // TEAM GETTERS AND SETTERS FROM UI
+    private void setTeamEditDialogInformation(Team team, String[] employeeNames) {
+        teamEditIdLabelCurrent.setText(team.getId().toString());
+        teamEditNameField.setText(team.getName());
+        teamEditDescriptionField.setText(team.getDescription());
+
+        Integer teamManagerIndex = Arrays.asList(employeeNames).indexOf(team.getManager().getName());
+
+        teamEditManagerComboBox.setSelectedIndex(teamManagerIndex);
+
+        editTeamDialog.setVisible(true);
+    }
+
+    private Team getTeamFromTable(Integer index) {
+        Integer id = (Integer) teamsTable.getModel().getValueAt(index, 0);
+        String name = teamsTable.getModel().getValueAt(index, 1).toString();
+        String description = teamsTable.getModel().getValueAt(index, 2).toString();
+        Employee manager = (Employee) teamsTable.getModel().getValueAt(index, 4);
+
+        return new Team(name, description, manager, id);
+    }
+
+    private Team getTeamFromEditDialog() {
+        Integer id = Integer.parseInt(teamEditIdLabelCurrent.getText());
+        Employee manager = main.getEmployeeByName(teamEditManagerComboBox.getSelectedItem().toString());
+        String name = teamEditNameField.getText();
+        String description = teamEditDescriptionField.getText();
+
+        return new Team(name, description, manager, id);
+    }
+
+    private Team getTeamFromAddDialog() {
+        Employee manager = main.getEmployeeByName(teamAddManagerComboBox.getSelectedItem().toString());
+        String name = teamAddNameField.getText();
+        String description = teamAddDescriptionField.getText();
+
+        return new Team(name, description, manager, null);
+    }
+
+    private void setEditTeamComboBoxes(String[] employeeNames) {
+        DefaultComboBoxModel<String> employeesModel = new DefaultComboBoxModel<>(employeeNames);
+
+        teamEditManagerComboBox.setModel(employeesModel);
+    }
+
+    private void setAddTeamComboBoxes(String[] employeeNames) {
+        DefaultComboBoxModel<String> employeesModel = new DefaultComboBoxModel<>(employeeNames);
+
+        teamAddManagerComboBox.setModel(employeesModel);
+    }
+
+    // TEAM OPERATIONS HELPERS
+    private void removeTeam() {
+        Integer selectedTeamIdIndex = teamsTable.getSelectedRow();
+
+        if (selectedTeamIdIndex >= 0) {
+            Integer selectedTeamId = (Integer) teamsTable.getModel().getValueAt(selectedTeamIdIndex, 0);
+            main.removeTeam(selectedTeamId);
+            setTeamsTable();
+        } else {
+            showDialogWithMessage("To remove a Team, please select it on the table and click the 'Remove' menu item");
+        }
+    }
+
+    private void saveAddedTeam() {
+        Team team = getTeamFromAddDialog();
+        main.addTeam(team);
+        addTeamDialog.setVisible(false);
+        setTeamsTable();
+    }
+
+    private void saveEditedTeam() {
+        Team team = getTeamFromEditDialog();
+        main.updateTeamInfo(team);
+        editTeamDialog.setVisible(false);
+        setTeamsTable();
+    }
+
+    /**
+     * EMPLOYEE HANDLERS AND HELPERS *
+     */
+    // EMPLOYEE HANDLERS
+    private void editEmployeeDialogHandler() {
+        Employee employee = null;
+        Integer selectedEmployeeIdIndex = employeesTable.getSelectedRow();
+
+        if (selectedEmployeeIdIndex >= 0) {
+            employee = getEmployeeFromTable(selectedEmployeeIdIndex);
+        } else {
+            showDialogWithMessage("To edit a Employee, please select it on the table and click the 'EDIT' button");
+            return;
+        }
+        if (employee != null) {
+            setEmployeeEditDialogInformation(employee);
+        }
+
+        editEmployeeDialog.setVisible(true);
+    }
+
+    private void addEmployeeDialogHandler() {
+        addEmployeeDialog.setVisible(true);
+    }
+
+    // EMPLOYEE GETTERS AND SETTERS FROM UI
+    private void setEmployeeEditDialogInformation(Employee employee) {
+        employeeEditIdLabelCurrent.setText(employee.getId().toString());
+        employeeEditNameField.setText(employee.getName());
+        employeeEditDescriptionField.setText(employee.getDescription());
+        employeeEditPasswordField.setText(employee.getPassword());
+
+        editEmployeeDialog.setVisible(true);
+    }
+
+    private Employee getEmployeeFromTable(Integer index) {
+        Integer id = (Integer) employeesTable.getModel().getValueAt(index, 0);
+        String name = employeesTable.getModel().getValueAt(index, 1).toString();
+        String description = employeesTable.getModel().getValueAt(index, 2).toString();
+        String role = employeesTable.getModel().getValueAt(index, 3).toString();
+        String password = employeesTable.getModel().getValueAt(index, 4).toString();
+
+        return new Employee(name, description, role, password, id);
+    }
+
+    private Employee getEmployeeFromEditDialog() {
+        Integer id = Integer.parseInt(employeeEditIdLabelCurrent.getText());
+        String name = employeeEditNameField.getText();
+        String description = employeeEditDescriptionField.getText();
+        String password = employeeEditPasswordField.getText();
+        String role = employeeEditRoleComboBox.getSelectedItem().toString();
+
+        return new Employee(name, description, role, password, id);
+    }
+
+    private Employee getEmployeeFromAddDialog() {
+        String name = employeeAddNameField.getText();
+        String description = employeeAddDescriptionField.getText();
+        String password = employeeAddPasswordField.getText();
+        String role = employeeAddRoleComboBox.getSelectedItem().toString();
+
+        return new Employee(name, description, role, password, null);
+    }
+
+    // EMPLOYEE OPERATIONS HELPERS
+    private void removeEmployee() {
+        Integer selectedEmployeeIdIndex = employeesTable.getSelectedRow();
+
+        if (selectedEmployeeIdIndex >= 0) {
+            Integer selectedEmployeeId = (Integer) employeesTable.getModel().getValueAt(selectedEmployeeIdIndex, 0);
+            main.removeEmployee(selectedEmployeeId);
+            setEmployeesTable();
+        } else {
+            showDialogWithMessage("To remove an employee, please select it on the table and click the 'Remove' menu item");
+        }
+    }
+
+    private void saveAddedEmployee() {
+        Employee employee = getEmployeeFromAddDialog();
+        main.addEmployee(employee);
+        addEmployeeDialog.setVisible(false);
+        setEmployeesTable();
+    }
+
+    private void saveEditedEmployee() {
+        Employee employee = getEmployeeFromEditDialog();
+        main.updateEmployeeInfo(employee);
+        editEmployeeDialog.setVisible(false);
+        setEmployeesTable();
+    }
+
+    /**
+     * GENERAL HELPERS
+     */
+    private void showDialogWithMessage(String message) {
+        messageDialogLabel.setText(message);
+        messageDialog.setVisible(true);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog addApiDialog;
+    private javax.swing.JDialog addEmployeeDialog;
+    private javax.swing.JDialog addTeamDialog;
     private javax.swing.JButton apiAddButton;
     private javax.swing.JButton apiAddCancelButton;
     private javax.swing.JTextField apiAddDescriptionField;
@@ -998,6 +1788,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel apiAddTeamLabel;
     private javax.swing.JButton apiEditButton;
     private javax.swing.JButton apiEditCancelButton;
+    private javax.swing.JButton apiEditCancelButton1;
     private javax.swing.JTextField apiEditDescriptionField;
     private javax.swing.JLabel apiEditDescriptionLabel;
     private javax.swing.JLabel apiEditIdLabel;
@@ -1007,6 +1798,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> apiEditOwnerComboBox;
     private javax.swing.JLabel apiEditOwnerLabel;
     private javax.swing.JButton apiEditSaveButton;
+    private javax.swing.JButton apiEditSaveButton1;
     private javax.swing.JComboBox<String> apiEditTeamComboBox;
     private javax.swing.JLabel apiEditTeamLabel;
     private javax.swing.JMenu apiMenu;
@@ -1015,10 +1807,34 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JTable apiTable;
     private javax.swing.JDialog editApiDialog;
     private javax.swing.JMenuItem editApiItem;
+    private javax.swing.JDialog editEmployeeDialog;
     private javax.swing.JMenu editMenu;
+    private javax.swing.JDialog editTeamDialog;
     private javax.swing.JButton employeeAddButton;
+    private javax.swing.JButton employeeAddCancelButton;
+    private javax.swing.JTextField employeeAddDescriptionField;
+    private javax.swing.JLabel employeeAddDescriptionLabel;
     private javax.swing.JMenuItem employeeAddItem;
+    private javax.swing.JTextField employeeAddNameField;
+    private javax.swing.JLabel employeeAddNameLabel;
+    private javax.swing.JTextField employeeAddPasswordField;
+    private javax.swing.JLabel employeeAddPasswordLabel;
+    private javax.swing.JComboBox<String> employeeAddRoleComboBox;
+    private javax.swing.JLabel employeeAddRoleLabel;
+    private javax.swing.JButton employeeAddSaveButton;
+    private javax.swing.JButton employeeEditCancelButton;
+    private javax.swing.JTextField employeeEditDescriptionField;
+    private javax.swing.JLabel employeeEditDescriptionLabel;
+    private javax.swing.JLabel employeeEditIdLabel;
+    private javax.swing.JLabel employeeEditIdLabelCurrent;
     private javax.swing.JMenuItem employeeEditItem;
+    private javax.swing.JTextField employeeEditNameField;
+    private javax.swing.JLabel employeeEditNameLabel;
+    private javax.swing.JTextField employeeEditPasswordField;
+    private javax.swing.JLabel employeeEditPasswordLabel;
+    private javax.swing.JComboBox<String> employeeEditRoleComboBox;
+    private javax.swing.JLabel employeeEditRoleLabel;
+    private javax.swing.JButton employeeEditSaveButton;
     private javax.swing.JMenuItem employeeRemoveItem;
     private javax.swing.JButton employeesEditButton;
     private javax.swing.JMenu employeesMenu;
@@ -1031,8 +1847,24 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton messageDialogOkButton;
     private javax.swing.JMenuItem removeApiItem;
     private javax.swing.JTabbedPane tabs;
+    private javax.swing.JButton teamAddCancelButton;
+    private javax.swing.JTextField teamAddDescriptionField;
+    private javax.swing.JLabel teamAddDescriptionLabel;
     private javax.swing.JMenuItem teamAddItem;
+    private javax.swing.JComboBox<String> teamAddManagerComboBox;
+    private javax.swing.JLabel teamAddManagerLabel;
+    private javax.swing.JTextField teamAddNameField;
+    private javax.swing.JLabel teamAddNameLabel;
+    private javax.swing.JButton teamAddSaveButton;
+    private javax.swing.JTextField teamEditDescriptionField;
+    private javax.swing.JLabel teamEditDescriptionLabel;
+    private javax.swing.JLabel teamEditIdLabel;
+    private javax.swing.JLabel teamEditIdLabelCurrent;
     private javax.swing.JMenuItem teamEditItem;
+    private javax.swing.JComboBox<String> teamEditManagerComboBox;
+    private javax.swing.JLabel teamEditManagerLabel;
+    private javax.swing.JTextField teamEditNameField;
+    private javax.swing.JLabel teamEditNameLabel;
     private javax.swing.JMenuItem teamRemoveItem;
     private javax.swing.JButton teamsAddButton;
     private javax.swing.JButton teamsEditButton;

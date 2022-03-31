@@ -16,4 +16,7 @@ public interface ITeamRepository {
     ArrayList<Team> getAll();
     ArrayList<String> getNames();
     ArrayList<Integer> getIds();
+    void removeTeam(Integer id);
+    void update(Team team);
+    void addTeam(Team team);
 }

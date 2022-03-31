@@ -16,4 +16,7 @@ public interface IEmployeeRepository {
     ArrayList<Employee> getAll();
     ArrayList<String> getNames();
     ArrayList<Integer> getIds();
+    void removeEmployee(Integer id);
+    void update(Employee employee);
+    void addEmployee(Employee employee);
 }

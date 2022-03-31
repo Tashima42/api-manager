@@ -54,14 +54,12 @@ public class Connect {
     public static void migrate(Connection conn) {
         Connect.migrateEmployee(conn);
         Connect.migrateTeam(conn);
-        Connect.migrateEmployeeTeam(conn);
         Connect.migrateApi(conn);
     }
 
     public static void populate(Connection conn) {
         Connect.populateEmployee(conn);
         Connect.populateTeam(conn);
-        Connect.populateEmployeeTeam(conn);
         Connect.populateApi(conn);
     }
 
@@ -103,22 +101,6 @@ public class Connect {
         try ( Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
             System.out.println("Migrated team");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    private static void migrateEmployeeTeam(Connection conn) {
-        String sql = "CREATE TABLE IF NOT EXISTS employee_team(\n"
-                + "     id integer PRIMARY KEY,\n"
-                + "     team text NOT NULL,\n"
-                + "     employee text NOT NULL,\n"
-                + "     FOREIGN KEY (team) REFERENCES team (id),\n"
-                + "     FOREIGN KEY (employee) REFERENCES employee (id)\n"
-                + ");";
-        try ( Statement stmt = conn.createStatement()) {
-            stmt.execute(sql);
-            System.out.println("Migrated employee_team");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -231,50 +213,7 @@ public class Connect {
             System.out.println(e.getMessage());
         }
     }
-
-    private static void populateEmployeeTeam(Connection conn) {
-        String sql = "INSERT INTO employee_team (team, employee)\n"
-                + "     VALUES (?, ?), (?, ?), (?, ?), (?, ?), (?, ?),\n"
-                + "     (?, ?), (?, ?), (?, ?), (?, ?), (?, ?);";
-
-        try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, 1);
-            pstmt.setInt(2, 1);
-
-            pstmt.setInt(3, 2);
-            pstmt.setInt(4, 2);
-
-            pstmt.setInt(5, 3);
-            pstmt.setInt(6, 3);
-
-            pstmt.setInt(7, 4);
-            pstmt.setInt(8, 4);
-
-            pstmt.setInt(9, 5);
-            pstmt.setInt(10, 5);
-
-            pstmt.setInt(11, 1);
-            pstmt.setInt(12, 6);
-
-            pstmt.setInt(13, 2);
-            pstmt.setInt(14, 7);
-
-            pstmt.setInt(15, 3);
-            pstmt.setInt(16, 3);
-
-            pstmt.setInt(17, 4);
-            pstmt.setInt(18, 8);
-
-            pstmt.setInt(19, 5);
-            pstmt.setInt(20, 9);
-
-            pstmt.executeUpdate();
-            System.out.println("Populated employee_team");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
+    
     private static void populateApi(Connection conn) {
         String sql = "INSERT INTO api\n"
                 + "     (name, description, owner, team)\n"
