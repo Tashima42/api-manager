@@ -30,7 +30,7 @@ public class MainView extends javax.swing.JFrame {
         setEmployeesTable();
 
         editApiDialog.setSize(280, 340);
-        editApiInformationDialog.setSize(440, 200);
+        messageDialog.setSize(440, 200);
         addApiDialog.setSize(262, 320);
     }
 
@@ -56,9 +56,9 @@ public class MainView extends javax.swing.JFrame {
         apiEditSaveButton = new javax.swing.JButton();
         apiEditIdLabel = new javax.swing.JLabel();
         apiEditIdLabelCurrent = new javax.swing.JLabel();
-        editApiInformationDialog = new javax.swing.JDialog();
-        editApiInstructionsLabel = new javax.swing.JLabel();
-        editApiInstructionsButton = new javax.swing.JButton();
+        messageDialog = new javax.swing.JDialog();
+        messageDialogLabel = new javax.swing.JLabel();
+        messageDialogOkButton = new javax.swing.JButton();
         addApiDialog = new javax.swing.JDialog();
         apiAddOwnerComboBox = new javax.swing.JComboBox<>();
         apiAddTeamComboBox = new javax.swing.JComboBox<>();
@@ -206,36 +206,37 @@ public class MainView extends javax.swing.JFrame {
                 .addGap(10, 10, 10))
         );
 
-        editApiInstructionsLabel.setText("To edit an API, please select it on the table and click the 'EDIT' button");
+        messageDialogLabel.setText("message");
 
-        editApiInstructionsButton.setText("OK");
-        editApiInstructionsButton.addActionListener(new java.awt.event.ActionListener() {
+        messageDialogOkButton.setText("OK");
+        messageDialogOkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editApiInstructionsButtonActionPerformed(evt);
+                messageDialogOkButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout editApiInformationDialogLayout = new javax.swing.GroupLayout(editApiInformationDialog.getContentPane());
-        editApiInformationDialog.getContentPane().setLayout(editApiInformationDialogLayout);
-        editApiInformationDialogLayout.setHorizontalGroup(
-            editApiInformationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editApiInformationDialogLayout.createSequentialGroup()
-                .addGroup(editApiInformationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(editApiInformationDialogLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(editApiInstructionsLabel))
-                    .addGroup(editApiInformationDialogLayout.createSequentialGroup()
+        javax.swing.GroupLayout messageDialogLayout = new javax.swing.GroupLayout(messageDialog.getContentPane());
+        messageDialog.getContentPane().setLayout(messageDialogLayout);
+        messageDialogLayout.setHorizontalGroup(
+            messageDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, messageDialogLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(messageDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(messageDialogLayout.createSequentialGroup()
                         .addGap(181, 181, 181)
-                        .addComponent(editApiInstructionsButton)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(messageDialogOkButton))
+                    .addGroup(messageDialogLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(messageDialogLabel)))
+                .addGap(183, 183, 183))
         );
-        editApiInformationDialogLayout.setVerticalGroup(
-            editApiInformationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editApiInformationDialogLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(editApiInstructionsLabel)
-                .addGap(33, 33, 33)
-                .addComponent(editApiInstructionsButton)
+        messageDialogLayout.setVerticalGroup(
+            messageDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(messageDialogLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(messageDialogLabel)
+                .addGap(41, 41, 41)
+                .addComponent(messageDialogOkButton)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -532,6 +533,11 @@ public class MainView extends javax.swing.JFrame {
         });
 
         apiAddItem.setText("Add API");
+        apiAddItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apiAddItemActionPerformed(evt);
+            }
+        });
         apiMenu.add(apiAddItem);
 
         editApiItem.setText("Edit API");
@@ -548,6 +554,11 @@ public class MainView extends javax.swing.JFrame {
         apiMenu.add(editApiItem);
 
         removeApiItem.setText("Remove API");
+        removeApiItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeApiItemActionPerformed(evt);
+            }
+        });
         apiMenu.add(removeApiItem);
 
         editMenu.add(apiMenu);
@@ -659,10 +670,10 @@ public class MainView extends javax.swing.JFrame {
         editApiDialogHandler();
     }//GEN-LAST:event_editApiItemActionPerformed
 
-    private void editApiInstructionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editApiInstructionsButtonActionPerformed
+    private void messageDialogOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageDialogOkButtonActionPerformed
         // TODO add your handling code here:
-        editApiInformationDialog.setVisible(false);
-    }//GEN-LAST:event_editApiInstructionsButtonActionPerformed
+        messageDialog.setVisible(false);
+    }//GEN-LAST:event_messageDialogOkButtonActionPerformed
 
     private void apiAddOwnerComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiAddOwnerComboBoxActionPerformed
         // TODO add your handling code here:
@@ -725,6 +736,15 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
         addApiDialog.setVisible(false);
     }//GEN-LAST:event_apiAddCancelButtonActionPerformed
+
+    private void apiAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiAddItemActionPerformed
+        addApiDialogHandler();
+    }//GEN-LAST:event_apiAddItemActionPerformed
+
+    private void removeApiItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeApiItemActionPerformed
+        // TODO add your handling code here:
+        removeApi();
+    }//GEN-LAST:event_removeApiItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -864,7 +884,7 @@ public class MainView extends javax.swing.JFrame {
         if (selectedApiIdIndex >= 0) {
             api = getApiFromTable(selectedApiIdIndex);
         } else {
-            editApiInformationDialog.setVisible(true);
+            showDialogWithMessage("To edit an API, please select it on the table and click the 'EDIT' button");
             return;
         }
         if (api != null) {
@@ -912,7 +932,7 @@ public class MainView extends javax.swing.JFrame {
         Employee owner = main.getEmployeeByName(apiEditOwnerComboBox.getSelectedItem().toString());
         String name = apiEditNameField.getText();
         String description = apiEditDescriptionField.getText();
-       
+
         return new Api(name, description, owner, team, id);
     }
 
@@ -921,7 +941,7 @@ public class MainView extends javax.swing.JFrame {
         Employee owner = main.getEmployeeByName(apiAddOwnerComboBox.getSelectedItem().toString());
         String name = apiAddNameField.getText();
         String description = apiAddDescriptionField.getText();
-        
+
         return new Api(name, description, owner, team, null);
     }
 
@@ -941,6 +961,24 @@ public class MainView extends javax.swing.JFrame {
 
         apiAddTeamComboBox.setModel(teamsModel);
         apiAddOwnerComboBox.setModel(employeesModel);
+    }
+
+    private void showDialogWithMessage(String message) {
+        messageDialogLabel.setText(message);
+        messageDialog.setVisible(true);
+    }
+
+    private void removeApi() {
+        System.out.println("REMOVE");
+        Integer selectedApiIdIndex = apiTable.getSelectedRow();
+
+        if (selectedApiIdIndex >= 0) {
+            Integer selectedApiId = (Integer) apiTable.getModel().getValueAt(selectedApiIdIndex, 0);
+            main.removeApi(selectedApiId);
+            setApisTable();
+        } else {
+            showDialogWithMessage("To remove an API, please select it on the table and click the 'Remove' menu item");
+        }
     }
 
 
@@ -976,9 +1014,6 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JScrollPane apiScrollPanel;
     private javax.swing.JTable apiTable;
     private javax.swing.JDialog editApiDialog;
-    private javax.swing.JDialog editApiInformationDialog;
-    private javax.swing.JButton editApiInstructionsButton;
-    private javax.swing.JLabel editApiInstructionsLabel;
     private javax.swing.JMenuItem editApiItem;
     private javax.swing.JMenu editMenu;
     private javax.swing.JButton employeeAddButton;
@@ -991,6 +1026,9 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JScrollPane employeesScrollPanel;
     private javax.swing.JTable employeesTable;
     private javax.swing.JMenuBar mainMenuBar;
+    private javax.swing.JDialog messageDialog;
+    private javax.swing.JLabel messageDialogLabel;
+    private javax.swing.JButton messageDialogOkButton;
     private javax.swing.JMenuItem removeApiItem;
     private javax.swing.JTabbedPane tabs;
     private javax.swing.JMenuItem teamAddItem;

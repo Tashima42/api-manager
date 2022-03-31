@@ -64,7 +64,7 @@ public class ApiRepository implements IApiRepository {
                 String teamName = res.getString("team_name");
                 String teamDescription = res.getString("team_description");
                 Integer teamId = res.getInt("team_id");
-                
+
                 Employee owner = new Employee(ownerName, ownerDescription, ownerRole, ownerPassword, ownerId);
                 Team team = new Team(teamName, teamDescription, null, teamId);
                 Api api = new Api(apiName, apiDescription, owner, team, id);
@@ -129,14 +129,14 @@ public class ApiRepository implements IApiRepository {
             ptsmt.setInt(3, api.getOwner().getId());
             ptsmt.setInt(4, api.getTeam().getId());
             ptsmt.setInt(5, api.getId());
-            
+
             ptsmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             throw new Error("Failed to update api");
         }
     }
-    
+
     @Override
     public void addApi(Api api) {
         String sql = "INSERT INTO api\n"
@@ -153,6 +153,19 @@ public class ApiRepository implements IApiRepository {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to add api");
+        }
+    }
+
+    @Override
+    public void removeApi(Integer id) {
+        String sql = "DELETE FROM api WHERE id = ?";
+        try ( PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to remove API");
         }
     }
 }

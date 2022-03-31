@@ -117,4 +117,8 @@ public class Main {
     public void addApi(Api api) {
         apiRepository.addApi(api);
     }
+    
+    public void removeApi(Integer id) {
+        apiRepository.removeApi(id);
+    }
 }

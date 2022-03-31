@@ -17,4 +17,5 @@ public interface IApiRepository {
    ArrayList<Integer> getIds();
    void update(Api api);
    void addApi(Api api);
+   void removeApi(Integer id);
 }
