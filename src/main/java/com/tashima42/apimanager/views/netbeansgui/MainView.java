@@ -10,7 +10,7 @@ import com.tashima42.apimanager.entities.Team;
 import com.tashima42.apimanager.views.Main;
 import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
-
+    
 /**
  *
  * @author tashima
@@ -765,6 +765,13 @@ public class MainView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tabs.setMaximumSize(null);
+        tabs.setMinimumSize(null);
+        tabs.setPreferredSize(null);
+
+        apiScrollPanel.setBackground(new java.awt.Color(242, 242, 242));
+
+        apiTable.setBackground(new java.awt.Color(204, 255, 204));
         apiTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -773,8 +780,11 @@ public class MainView extends javax.swing.JFrame {
 
             }
         ));
+        apiTable.setGridColor(new java.awt.Color(255, 204, 204));
+        apiTable.setSelectionBackground(new java.awt.Color(0, 153, 102));
         apiScrollPanel.setViewportView(apiTable);
 
+        apiEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
         apiEditButton.setText("Edit");
         apiEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -787,6 +797,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        apiAddButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
         apiAddButton.setText("Add");
         apiAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -826,6 +837,7 @@ public class MainView extends javax.swing.JFrame {
 
         tabs.addTab("APIs", apiPanel);
 
+        teamsTable.setBackground(new java.awt.Color(204, 204, 255));
         teamsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -834,8 +846,11 @@ public class MainView extends javax.swing.JFrame {
 
             }
         ));
+        teamsTable.setGridColor(new java.awt.Color(102, 255, 204));
+        teamsTable.setSelectionBackground(new java.awt.Color(255, 102, 102));
         teamsScrollPanel.setViewportView(teamsTable);
 
+        teamsEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
         teamsEditButton.setText("Edit");
         teamsEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -848,6 +863,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        teamsAddButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
         teamsAddButton.setText("Add");
         teamsAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -887,6 +903,7 @@ public class MainView extends javax.swing.JFrame {
 
         tabs.addTab("Teams", teamsPanel);
 
+        employeesTable.setBackground(new java.awt.Color(255, 204, 204));
         employeesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -895,8 +912,11 @@ public class MainView extends javax.swing.JFrame {
 
             }
         ));
+        employeesTable.setGridColor(new java.awt.Color(255, 153, 102));
+        employeesTable.setSelectionBackground(new java.awt.Color(153, 153, 255));
         employeesScrollPanel.setViewportView(employeesTable);
 
+        employeesEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
         employeesEditButton.setText("Edit");
         employeesEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -909,6 +929,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        employeeAddButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
         employeeAddButton.setText("Add");
         employeeAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -950,6 +971,7 @@ public class MainView extends javax.swing.JFrame {
 
         editMenu.setText("Edit");
 
+        apiMenu.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/api.png")); // NOI18N
         apiMenu.setText("APIs");
         apiMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -957,6 +979,7 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        apiAddItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
         apiAddItem.setText("Add API");
         apiAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -965,6 +988,7 @@ public class MainView extends javax.swing.JFrame {
         });
         apiMenu.add(apiAddItem);
 
+        editApiItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
         editApiItem.setText("Edit API");
         editApiItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -978,6 +1002,7 @@ public class MainView extends javax.swing.JFrame {
         });
         apiMenu.add(editApiItem);
 
+        removeApiItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/minus.png")); // NOI18N
         removeApiItem.setText("Remove API");
         removeApiItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -988,8 +1013,10 @@ public class MainView extends javax.swing.JFrame {
 
         editMenu.add(apiMenu);
 
+        teamsMenu.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/team.png")); // NOI18N
         teamsMenu.setText("Teams");
 
+        teamAddItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
         teamAddItem.setText("Add Team");
         teamAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -998,6 +1025,7 @@ public class MainView extends javax.swing.JFrame {
         });
         teamsMenu.add(teamAddItem);
 
+        teamEditItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
         teamEditItem.setText("Edit Team");
         teamEditItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1006,6 +1034,7 @@ public class MainView extends javax.swing.JFrame {
         });
         teamsMenu.add(teamEditItem);
 
+        teamRemoveItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/minus.png")); // NOI18N
         teamRemoveItem.setText("Remove Team");
         teamRemoveItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1016,8 +1045,10 @@ public class MainView extends javax.swing.JFrame {
 
         editMenu.add(teamsMenu);
 
+        employeesMenu.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/employee.png")); // NOI18N
         employeesMenu.setText("Employees");
 
+        employeeAddItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
         employeeAddItem.setText("Add Employee");
         employeeAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1026,6 +1057,7 @@ public class MainView extends javax.swing.JFrame {
         });
         employeesMenu.add(employeeAddItem);
 
+        employeeEditItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
         employeeEditItem.setText("Edit Employee");
         employeeEditItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1034,6 +1066,7 @@ public class MainView extends javax.swing.JFrame {
         });
         employeesMenu.add(employeeEditItem);
 
+        employeeRemoveItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/minus.png")); // NOI18N
         employeeRemoveItem.setText("Remove Employee");
         employeeRemoveItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1052,11 +1085,11 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabs, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tabs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabs, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tabs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

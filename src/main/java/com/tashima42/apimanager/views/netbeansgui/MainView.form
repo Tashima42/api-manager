@@ -838,6 +838,9 @@
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="apiMenu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/api.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="APIs"/>
               </Properties>
               <Events>
@@ -846,6 +849,9 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="apiAddItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add API"/>
                   </Properties>
                   <Events>
@@ -854,6 +860,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="editApiItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Edit API"/>
                   </Properties>
                   <Events>
@@ -863,6 +872,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="removeApiItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/minus.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Remove API"/>
                   </Properties>
                   <Events>
@@ -873,11 +885,17 @@
             </Menu>
             <Menu class="javax.swing.JMenu" name="teamsMenu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/team.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Teams"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="teamAddItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add Team"/>
                   </Properties>
                   <Events>
@@ -886,6 +904,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="teamEditItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Edit Team"/>
                   </Properties>
                   <Events>
@@ -894,6 +915,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="teamRemoveItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/minus.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Remove Team"/>
                   </Properties>
                   <Events>
@@ -904,11 +928,17 @@
             </Menu>
             <Menu class="javax.swing.JMenu" name="employeesMenu">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/employee.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Employees"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="employeeAddItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Add Employee"/>
                   </Properties>
                   <Events>
@@ -917,6 +947,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="employeeEditItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Edit Employee"/>
                   </Properties>
                   <Events>
@@ -925,6 +958,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="employeeRemoveItem">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/minus.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Remove Employee"/>
                   </Properties>
                   <Events>
@@ -972,6 +1008,17 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="tabs">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="null"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="null"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="null"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -1016,6 +1063,11 @@
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JScrollPane" name="apiScrollPanel">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                </Property>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -1024,11 +1076,20 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="apiTable">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="ff" red="cc" type="rgb"/>
+                    </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="0" rowCount="0"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
+                    </Property>
+                    <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="99" red="0" type="rgb"/>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -1039,6 +1100,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="apiEditButton">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Edit"/>
               </Properties>
               <Events>
@@ -1048,6 +1112,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="apiAddButton">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
               <Events>
@@ -1106,11 +1173,20 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="teamsTable">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="cc" red="cc" type="rgb"/>
+                    </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="0" rowCount="0"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
+                    </Property>
+                    <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="ff" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="ff" type="rgb"/>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -1121,6 +1197,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="teamsEditButton">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Edit"/>
               </Properties>
               <Events>
@@ -1130,6 +1209,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="teamsAddButton">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
               <Events>
@@ -1188,11 +1270,20 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="employeesTable">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="0" rowCount="0"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
+                    </Property>
+                    <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="99" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="99" red="99" type="rgb"/>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -1203,6 +1294,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="employeesEditButton">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Edit"/>
               </Properties>
               <Events>
@@ -1212,6 +1306,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="employeeAddButton">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
               <Events>
