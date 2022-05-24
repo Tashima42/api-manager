@@ -6,9 +6,11 @@ package com.tashima42.apimanager.views;
 
 import com.tashima42.apimanager.entities.Api;
 import com.tashima42.apimanager.entities.Employee;
+import com.tashima42.apimanager.entities.Maintenance;
 import com.tashima42.apimanager.entities.Team;
 import com.tashima42.apimanager.repositories.Sqlite.ApiRepository;
 import com.tashima42.apimanager.repositories.Sqlite.EmployeeRepository;
+import com.tashima42.apimanager.repositories.Sqlite.MaintenanceRepository;
 import com.tashima42.apimanager.repositories.Sqlite.TeamRepository;
 import java.util.ArrayList;
 
@@ -21,11 +23,13 @@ public class Main {
     private final ApiRepository apiRepository;
     private final EmployeeRepository employeeRepository;
     private final TeamRepository teamRepository;
+    private final MaintenanceRepository maintenanceRepository;
 
     public Main() {
         this.apiRepository = new ApiRepository();
         this.employeeRepository = new EmployeeRepository();
         this.teamRepository = new TeamRepository();
+        this.maintenanceRepository = new MaintenanceRepository();
     }
 
     public Object[][] getApisInfo() {
@@ -76,6 +80,22 @@ public class Main {
             employeesTableInfo[i][2] = employee.getDescription();
             employeesTableInfo[i][3] = employee.getRole();
             employeesTableInfo[i][4] = employee.getPassword();
+        }
+
+        return employeesTableInfo;
+    }
+    
+    public Object[][] getMaintenancesInfo() {
+        ArrayList<Maintenance> maintenances = maintenanceRepository.getAll();
+        Object[][] employeesTableInfo = new Object[maintenances.size()][5];
+
+        for (int i = 0; i < maintenances.size(); i++) {
+            Maintenance maintenance = maintenances.get(i);
+
+            employeesTableInfo[i][0] = maintenance.getId();
+            employeesTableInfo[i][1] = maintenance.getDescription();
+            employeesTableInfo[i][2] = maintenance.getOwner();
+            employeesTableInfo[i][3] = maintenance.getApi();
         }
 
         return employeesTableInfo;

@@ -55,17 +55,20 @@ public class Connect {
         Connect.migrateEmployee(conn);
         Connect.migrateTeam(conn);
         Connect.migrateApi(conn);
+        Connect.migrateMaintenance(conn);
     }
 
     public static void populate(Connection conn) {
         Connect.populateEmployee(conn);
         Connect.populateTeam(conn);
         Connect.populateApi(conn);
+        Connect.populateMaintenance(conn);
     }
 
     private static void dropAllTables(Connection conn) {
         try ( Statement stmt = conn.createStatement()) {
             stmt.execute("DROP TABLE api;");
+            stmt.execute("DROP TABLE maintenance;");
             stmt.execute("DROP TABLE employee_team;");
             stmt.execute("DROP TABLE team;");
             stmt.execute("DROP TABLE employee;");
@@ -119,6 +122,24 @@ public class Connect {
         try ( Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
             System.out.println("Migrated api");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+        private static void migrateMaintenance(Connection conn) {
+        String sql = "CREATE TABLE IF NOT EXISTS maintenance(\n"
+                + "     id integer PRIMARY KEY,\n"
+                + "     description text NOT NULL,\n"
+                + "     date text NOT NULL,\n"
+                + "     owner integer NOT NULL,\n"
+                + "     api integer NOT NULL,\n"
+                + "     FOREIGN KEY (api) REFERENCES api (id),\n"
+                + "     FOREIGN KEY (owner) REFERENCES employee (id)\n"
+                + ");";
+        try ( Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+            System.out.println("Migrated maintenance");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -247,6 +268,44 @@ public class Connect {
 
             pstmt.executeUpdate();
             System.out.println("Populated api");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private static void populateMaintenance(Connection conn) {
+        String sql = "INSERT INTO maintenance\n"
+                + "     (description, date, owner, api)\n"
+                + "     VALUES (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?), (?, ?, ?, ?);";
+
+        try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, "Scheduled Maintenance");
+            pstmt.setString(2, "2022-05-08T19:38:00.262Z");
+            pstmt.setInt(3, 2);
+            pstmt.setInt(4, 1);
+
+            pstmt.setString(5, "Scheduled Maintenance");
+            pstmt.setString(6, "2022-05-08T19:38:00.262Z");
+            pstmt.setInt(7, 3);
+            pstmt.setInt(8, 2);
+
+            pstmt.setString(9, "Scheduled Maintenance");
+            pstmt.setString(10, "2022-05-08T19:38:00.262Z");
+            pstmt.setInt(11, 4);
+            pstmt.setInt(12, 3);
+
+            pstmt.setString(13, "Scheduled Maintenance");
+            pstmt.setString(14, "2022-05-08T19:38:00.262Z");
+            pstmt.setInt(15, 5);
+            pstmt.setInt(16, 4);
+
+            pstmt.setString(17, "Scheduled Maintenance");
+            pstmt.setString(18, "2022-05-08T19:38:00.262Z");
+            pstmt.setInt(19, 6);
+            pstmt.setInt(20, 5);
+
+            pstmt.executeUpdate();
+            System.out.println("Populated maintenance");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

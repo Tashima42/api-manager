@@ -10,7 +10,7 @@ import com.tashima42.apimanager.entities.Team;
 import com.tashima42.apimanager.views.Main;
 import java.util.Arrays;
 import javax.swing.DefaultComboBoxModel;
-    
+
 /**
  *
  * @author tashima
@@ -138,6 +138,11 @@ public class MainView extends javax.swing.JFrame {
         employeesTable = new javax.swing.JTable();
         employeesEditButton = new javax.swing.JButton();
         employeeAddButton = new javax.swing.JButton();
+        maintenancePanel = new javax.swing.JPanel();
+        maintenanceScrollPanel = new javax.swing.JScrollPane();
+        maintenanceTable = new javax.swing.JTable();
+        maintenanceEditButton = new javax.swing.JButton();
+        maintenanceAddButton = new javax.swing.JButton();
         mainMenuBar = new javax.swing.JMenuBar();
         editMenu = new javax.swing.JMenu();
         apiMenu = new javax.swing.JMenu();
@@ -152,6 +157,8 @@ public class MainView extends javax.swing.JFrame {
         employeeAddItem = new javax.swing.JMenuItem();
         employeeEditItem = new javax.swing.JMenuItem();
         employeeRemoveItem = new javax.swing.JMenuItem();
+        manageMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         apiEditOwnerComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -766,10 +773,11 @@ public class MainView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tabs.setMaximumSize(null);
-        tabs.setMinimumSize(null);
-        tabs.setPreferredSize(null);
 
-        apiScrollPanel.setBackground(new java.awt.Color(242, 242, 242));
+        apiPanel.setForeground(new java.awt.Color(242, 242, 242));
+
+        apiScrollPanel.setBackground(new java.awt.Color(204, 255, 204));
+        apiScrollPanel.setForeground(new java.awt.Color(204, 255, 204));
 
         apiTable.setBackground(new java.awt.Color(204, 255, 204));
         apiTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -780,11 +788,13 @@ public class MainView extends javax.swing.JFrame {
 
             }
         ));
-        apiTable.setGridColor(new java.awt.Color(255, 204, 204));
+        apiTable.setFillsViewportHeight(true);
+        apiTable.setGridColor(new java.awt.Color(0, 0, 0));
         apiTable.setSelectionBackground(new java.awt.Color(0, 153, 102));
+        apiTable.setShowGrid(true);
         apiScrollPanel.setViewportView(apiTable);
 
-        apiEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
+        apiEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
         apiEditButton.setText("Edit");
         apiEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -846,11 +856,13 @@ public class MainView extends javax.swing.JFrame {
 
             }
         ));
-        teamsTable.setGridColor(new java.awt.Color(102, 255, 204));
+        teamsTable.setFillsViewportHeight(true);
+        teamsTable.setGridColor(new java.awt.Color(0, 0, 0));
         teamsTable.setSelectionBackground(new java.awt.Color(255, 102, 102));
+        teamsTable.setShowGrid(true);
         teamsScrollPanel.setViewportView(teamsTable);
 
-        teamsEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
+        teamsEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
         teamsEditButton.setText("Edit");
         teamsEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -912,11 +924,13 @@ public class MainView extends javax.swing.JFrame {
 
             }
         ));
-        employeesTable.setGridColor(new java.awt.Color(255, 153, 102));
+        employeesTable.setFillsViewportHeight(true);
+        employeesTable.setGridColor(new java.awt.Color(0, 0, 0));
         employeesTable.setSelectionBackground(new java.awt.Color(153, 153, 255));
+        employeesTable.setShowGrid(true);
         employeesScrollPanel.setViewportView(employeesTable);
 
-        employeesEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
+        employeesEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
         employeesEditButton.setText("Edit");
         employeesEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -969,6 +983,77 @@ public class MainView extends javax.swing.JFrame {
 
         tabs.addTab("Employees", employeesPanel);
 
+        maintenanceScrollPanel.setBackground(new java.awt.Color(255, 204, 204));
+
+        maintenanceTable.setBackground(new java.awt.Color(255, 255, 153));
+        maintenanceTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        maintenanceTable.setFillsViewportHeight(true);
+        maintenanceTable.setGridColor(new java.awt.Color(0, 0, 0));
+        maintenanceTable.setSelectionBackground(new java.awt.Color(204, 204, 0));
+        maintenanceTable.setShowGrid(true);
+        maintenanceScrollPanel.setViewportView(maintenanceTable);
+
+        maintenanceEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
+        maintenanceEditButton.setText("Edit");
+        maintenanceEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                maintenanceEditButtonMouseClicked(evt);
+            }
+        });
+        maintenanceEditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maintenanceEditButtonActionPerformed(evt);
+            }
+        });
+
+        maintenanceAddButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
+        maintenanceAddButton.setText("Add");
+        maintenanceAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                maintenanceAddButtonMouseClicked(evt);
+            }
+        });
+        maintenanceAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maintenanceAddButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout maintenancePanelLayout = new javax.swing.GroupLayout(maintenancePanel);
+        maintenancePanel.setLayout(maintenancePanelLayout);
+        maintenancePanelLayout.setHorizontalGroup(
+            maintenancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(maintenancePanelLayout.createSequentialGroup()
+                .addComponent(maintenanceScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(maintenancePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(maintenanceEditButton)
+                .addGap(41, 41, 41)
+                .addComponent(maintenanceAddButton)
+                .addGap(181, 181, 181))
+        );
+        maintenancePanelLayout.setVerticalGroup(
+            maintenancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, maintenancePanelLayout.createSequentialGroup()
+                .addComponent(maintenanceScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(maintenancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(maintenanceEditButton)
+                    .addComponent(maintenanceAddButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tabs.addTab("Maintenance", maintenancePanel);
+
+        editMenu.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
         editMenu.setText("Edit");
 
         apiMenu.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/api.png")); // NOI18N
@@ -988,7 +1073,7 @@ public class MainView extends javax.swing.JFrame {
         });
         apiMenu.add(apiAddItem);
 
-        editApiItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
+        editApiItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
         editApiItem.setText("Edit API");
         editApiItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1025,7 +1110,7 @@ public class MainView extends javax.swing.JFrame {
         });
         teamsMenu.add(teamAddItem);
 
-        teamEditItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
+        teamEditItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
         teamEditItem.setText("Edit Team");
         teamEditItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1057,7 +1142,7 @@ public class MainView extends javax.swing.JFrame {
         });
         employeesMenu.add(employeeAddItem);
 
-        employeeEditItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
+        employeeEditItem.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
         employeeEditItem.setText("Edit Employee");
         employeeEditItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1079,6 +1164,13 @@ public class MainView extends javax.swing.JFrame {
 
         mainMenuBar.add(editMenu);
 
+        manageMenu.setText("Manage");
+
+        jMenuItem1.setText("Schedule Maintenance");
+        manageMenu.add(jMenuItem1);
+
+        mainMenuBar.add(manageMenu);
+
         setJMenuBar(mainMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1094,57 +1186,6 @@ public class MainView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void apiAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiAddButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_apiAddButtonActionPerformed
-
-    private void apiAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiAddButtonMouseClicked
-        // TODO add your handling code here:
-        addApiDialogHandler();
-    }//GEN-LAST:event_apiAddButtonMouseClicked
-
-    private void apiEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiEditButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_apiEditButtonActionPerformed
-
-    private void apiEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiEditButtonMouseClicked
-        // TODO add your handling code here:
-        editApiDialogHandler();
-    }//GEN-LAST:event_apiEditButtonMouseClicked
-
-    private void teamsEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamsEditButtonMouseClicked
-        // TODO add your handling code here:
-        editTeamDialogHandler();
-    }//GEN-LAST:event_teamsEditButtonMouseClicked
-
-    private void teamsEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamsEditButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teamsEditButtonActionPerformed
-
-    private void teamsAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamsAddButtonMouseClicked
-        addTeamDialogHandler();
-    }//GEN-LAST:event_teamsAddButtonMouseClicked
-
-    private void teamsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamsAddButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_teamsAddButtonActionPerformed
-
-    private void employeesEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesEditButtonMouseClicked
-        editEmployeeDialogHandler();
-    }//GEN-LAST:event_employeesEditButtonMouseClicked
-
-    private void employeesEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeesEditButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_employeesEditButtonActionPerformed
-
-    private void employeeAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAddButtonMouseClicked
-        addEmployeeDialogHandler();
-    }//GEN-LAST:event_employeeAddButtonMouseClicked
-
-    private void employeeAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeAddButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_employeeAddButtonActionPerformed
 
     private void editApiItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editApiItemMouseClicked
         // TODO add your handling code here:
@@ -1343,6 +1384,73 @@ public class MainView extends javax.swing.JFrame {
         removeEmployee();
     }//GEN-LAST:event_employeeRemoveItemActionPerformed
 
+    private void employeeAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeAddButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeAddButtonActionPerformed
+
+    private void employeeAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeAddButtonMouseClicked
+        addEmployeeDialogHandler();
+    }//GEN-LAST:event_employeeAddButtonMouseClicked
+
+    private void employeesEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeesEditButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeesEditButtonActionPerformed
+
+    private void employeesEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesEditButtonMouseClicked
+        editEmployeeDialogHandler();
+    }//GEN-LAST:event_employeesEditButtonMouseClicked
+
+    private void teamsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamsAddButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_teamsAddButtonActionPerformed
+
+    private void teamsAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamsAddButtonMouseClicked
+        addTeamDialogHandler();
+    }//GEN-LAST:event_teamsAddButtonMouseClicked
+
+    private void teamsEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamsEditButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_teamsEditButtonActionPerformed
+
+    private void teamsEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_teamsEditButtonMouseClicked
+        // TODO add your handling code here:
+        editTeamDialogHandler();
+    }//GEN-LAST:event_teamsEditButtonMouseClicked
+
+    private void apiAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiAddButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apiAddButtonActionPerformed
+
+    private void apiAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiAddButtonMouseClicked
+        // TODO add your handling code here:
+        addApiDialogHandler();
+    }//GEN-LAST:event_apiAddButtonMouseClicked
+
+    private void apiEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apiEditButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apiEditButtonActionPerformed
+
+    private void apiEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apiEditButtonMouseClicked
+        // TODO add your handling code here:
+        editApiDialogHandler();
+    }//GEN-LAST:event_apiEditButtonMouseClicked
+
+    private void maintenanceEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maintenanceEditButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maintenanceEditButtonMouseClicked
+
+    private void maintenanceEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maintenanceEditButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maintenanceEditButtonActionPerformed
+
+    private void maintenanceAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maintenanceAddButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maintenanceAddButtonMouseClicked
+
+    private void maintenanceAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maintenanceAddButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maintenanceAddButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1470,7 +1578,7 @@ public class MainView extends javax.swing.JFrame {
     }
 
     ;
-     
+          
      /** API HANDLERS AND HELPERS **/
      
      // API HANDLERS
@@ -1874,7 +1982,14 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel employeesPanel;
     private javax.swing.JScrollPane employeesScrollPanel;
     private javax.swing.JTable employeesTable;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar mainMenuBar;
+    private javax.swing.JButton maintenanceAddButton;
+    private javax.swing.JButton maintenanceEditButton;
+    private javax.swing.JPanel maintenancePanel;
+    private javax.swing.JScrollPane maintenanceScrollPanel;
+    private javax.swing.JTable maintenanceTable;
+    private javax.swing.JMenu manageMenu;
     private javax.swing.JDialog messageDialog;
     private javax.swing.JLabel messageDialogLabel;
     private javax.swing.JButton messageDialogOkButton;
