@@ -9,6 +9,7 @@ import com.tashima42.apimanager.entities.Employee;
 import com.tashima42.apimanager.entities.Team;
 import com.tashima42.apimanager.views.Main;
 import java.util.Arrays;
+import javax.swing.ImageIcon;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -128,21 +129,19 @@ public class MainView extends javax.swing.JFrame {
         apiTable = new javax.swing.JTable();
         apiEditButton = new javax.swing.JButton();
         apiAddButton = new javax.swing.JButton();
-        teamsPanel = new javax.swing.JPanel();
-        teamsScrollPanel = new javax.swing.JScrollPane();
-        teamsTable = new javax.swing.JTable();
-        teamsEditButton = new javax.swing.JButton();
-        teamsAddButton = new javax.swing.JButton();
+        painelImagemFundo1 = new com.tashima42.apimanager.views.netbeansgui.PainelImagemFundo();
         employeesPanel = new javax.swing.JPanel();
         employeesScrollPanel = new javax.swing.JScrollPane();
         employeesTable = new javax.swing.JTable();
         employeesEditButton = new javax.swing.JButton();
         employeeAddButton = new javax.swing.JButton();
-        maintenancePanel = new javax.swing.JPanel();
-        maintenanceScrollPanel = new javax.swing.JScrollPane();
-        maintenanceTable = new javax.swing.JTable();
-        maintenanceEditButton = new javax.swing.JButton();
-        maintenanceAddButton = new javax.swing.JButton();
+        painelImagemFundo2 = new com.tashima42.apimanager.views.netbeansgui.PainelImagemFundo();
+        teamsPanel = new javax.swing.JPanel();
+        teamsScrollPanel = new javax.swing.JScrollPane();
+        teamsTable = new javax.swing.JTable();
+        teamsEditButton = new javax.swing.JButton();
+        teamsAddButton = new javax.swing.JButton();
+        painelImagemFundo3 = new com.tashima42.apimanager.views.netbeansgui.PainelImagemFundo();
         mainMenuBar = new javax.swing.JMenuBar();
         editMenu = new javax.swing.JMenu();
         apiMenu = new javax.swing.JMenu();
@@ -157,8 +156,6 @@ public class MainView extends javax.swing.JFrame {
         employeeAddItem = new javax.swing.JMenuItem();
         employeeEditItem = new javax.swing.JMenuItem();
         employeeRemoveItem = new javax.swing.JMenuItem();
-        manageMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
 
         apiEditOwnerComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -771,6 +768,7 @@ public class MainView extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         tabs.setMaximumSize(null);
 
@@ -820,100 +818,54 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        painelImagemFundo1.setImg(new ImageIcon("src/main/java/resources/backgrounds/api-header.png"));
+
+        javax.swing.GroupLayout painelImagemFundo1Layout = new javax.swing.GroupLayout(painelImagemFundo1);
+        painelImagemFundo1.setLayout(painelImagemFundo1Layout);
+        painelImagemFundo1Layout.setHorizontalGroup(
+            painelImagemFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        painelImagemFundo1Layout.setVerticalGroup(
+            painelImagemFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout apiPanelLayout = new javax.swing.GroupLayout(apiPanel);
         apiPanel.setLayout(apiPanelLayout);
         apiPanelLayout.setHorizontalGroup(
             apiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apiPanelLayout.createSequentialGroup()
-                .addComponent(apiScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(apiPanelLayout.createSequentialGroup()
+                .addGap(218, 218, 218)
+                .addComponent(painelImagemFundo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apiPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(apiEditButton)
-                .addGap(41, 41, 41)
-                .addComponent(apiAddButton)
-                .addGap(181, 181, 181))
+                .addGroup(apiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apiPanelLayout.createSequentialGroup()
+                        .addComponent(apiScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apiPanelLayout.createSequentialGroup()
+                        .addComponent(apiEditButton)
+                        .addGap(44, 44, 44)
+                        .addComponent(apiAddButton)
+                        .addGap(167, 167, 167))))
         );
         apiPanelLayout.setVerticalGroup(
             apiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apiPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(painelImagemFundo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(apiScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(apiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(apiEditButton)
                     .addComponent(apiAddButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         tabs.addTab("APIs", apiPanel);
-
-        teamsTable.setBackground(new java.awt.Color(204, 204, 255));
-        teamsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        teamsTable.setFillsViewportHeight(true);
-        teamsTable.setGridColor(new java.awt.Color(0, 0, 0));
-        teamsTable.setSelectionBackground(new java.awt.Color(255, 102, 102));
-        teamsTable.setShowGrid(true);
-        teamsScrollPanel.setViewportView(teamsTable);
-
-        teamsEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
-        teamsEditButton.setText("Edit");
-        teamsEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                teamsEditButtonMouseClicked(evt);
-            }
-        });
-        teamsEditButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teamsEditButtonActionPerformed(evt);
-            }
-        });
-
-        teamsAddButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
-        teamsAddButton.setText("Add");
-        teamsAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                teamsAddButtonMouseClicked(evt);
-            }
-        });
-        teamsAddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                teamsAddButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout teamsPanelLayout = new javax.swing.GroupLayout(teamsPanel);
-        teamsPanel.setLayout(teamsPanelLayout);
-        teamsPanelLayout.setHorizontalGroup(
-            teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(teamsPanelLayout.createSequentialGroup()
-                .addComponent(teamsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(teamsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(teamsEditButton)
-                .addGap(41, 41, 41)
-                .addComponent(teamsAddButton)
-                .addGap(181, 181, 181))
-        );
-        teamsPanelLayout.setVerticalGroup(
-            teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, teamsPanelLayout.createSequentialGroup()
-                .addComponent(teamsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(teamsEditButton)
-                    .addComponent(teamsAddButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        tabs.addTab("Teams", teamsPanel);
 
         employeesTable.setBackground(new java.awt.Color(255, 204, 204));
         employeesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -956,37 +908,62 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        painelImagemFundo2.setImg(new ImageIcon("src/main/java/resources/backgrounds/employee-header.png"));
+        painelImagemFundo2.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        javax.swing.GroupLayout painelImagemFundo2Layout = new javax.swing.GroupLayout(painelImagemFundo2);
+        painelImagemFundo2.setLayout(painelImagemFundo2Layout);
+        painelImagemFundo2Layout.setHorizontalGroup(
+            painelImagemFundo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        painelImagemFundo2Layout.setVerticalGroup(
+            painelImagemFundo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout employeesPanelLayout = new javax.swing.GroupLayout(employeesPanel);
         employeesPanel.setLayout(employeesPanelLayout);
         employeesPanelLayout.setHorizontalGroup(
             employeesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(employeesPanelLayout.createSequentialGroup()
-                .addComponent(employeesScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(employeesPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(employeesEditButton)
-                .addGap(41, 41, 41)
-                .addComponent(employeeAddButton)
-                .addGap(181, 181, 181))
+                .addContainerGap()
+                .addGroup(employeesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(employeesScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(employeesPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                        .addComponent(employeesEditButton)
+                        .addGap(41, 41, 41)
+                        .addComponent(employeeAddButton)
+                        .addGap(169, 169, 169)))
+                .addContainerGap())
+            .addGroup(employeesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(employeesPanelLayout.createSequentialGroup()
+                    .addGap(219, 219, 219)
+                    .addComponent(painelImagemFundo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(230, Short.MAX_VALUE)))
         );
         employeesPanelLayout.setVerticalGroup(
             employeesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, employeesPanelLayout.createSequentialGroup()
+                .addContainerGap(115, Short.MAX_VALUE)
                 .addComponent(employeesScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(employeesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(employeesEditButton)
                     .addComponent(employeeAddButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(employeesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(employeesPanelLayout.createSequentialGroup()
+                    .addGap(7, 7, 7)
+                    .addComponent(painelImagemFundo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(345, Short.MAX_VALUE)))
         );
 
         tabs.addTab("Employees", employeesPanel);
 
-        maintenanceScrollPanel.setBackground(new java.awt.Color(255, 204, 204));
-
-        maintenanceTable.setBackground(new java.awt.Color(255, 255, 153));
-        maintenanceTable.setModel(new javax.swing.table.DefaultTableModel(
+        teamsTable.setBackground(new java.awt.Color(204, 204, 255));
+        teamsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -994,64 +971,87 @@ public class MainView extends javax.swing.JFrame {
 
             }
         ));
-        maintenanceTable.setFillsViewportHeight(true);
-        maintenanceTable.setGridColor(new java.awt.Color(0, 0, 0));
-        maintenanceTable.setSelectionBackground(new java.awt.Color(204, 204, 0));
-        maintenanceTable.setShowGrid(true);
-        maintenanceScrollPanel.setViewportView(maintenanceTable);
+        teamsTable.setFillsViewportHeight(true);
+        teamsTable.setGridColor(new java.awt.Color(0, 0, 0));
+        teamsTable.setSelectionBackground(new java.awt.Color(255, 102, 102));
+        teamsTable.setShowGrid(true);
+        teamsScrollPanel.setViewportView(teamsTable);
 
-        maintenanceEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
-        maintenanceEditButton.setText("Edit");
-        maintenanceEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        teamsEditButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/pencil.png")); // NOI18N
+        teamsEditButton.setText("Edit");
+        teamsEditButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                maintenanceEditButtonMouseClicked(evt);
+                teamsEditButtonMouseClicked(evt);
             }
         });
-        maintenanceEditButton.addActionListener(new java.awt.event.ActionListener() {
+        teamsEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maintenanceEditButtonActionPerformed(evt);
+                teamsEditButtonActionPerformed(evt);
             }
         });
 
-        maintenanceAddButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
-        maintenanceAddButton.setText("Add");
-        maintenanceAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        teamsAddButton.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/plus.png")); // NOI18N
+        teamsAddButton.setText("Add");
+        teamsAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                maintenanceAddButtonMouseClicked(evt);
+                teamsAddButtonMouseClicked(evt);
             }
         });
-        maintenanceAddButton.addActionListener(new java.awt.event.ActionListener() {
+        teamsAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maintenanceAddButtonActionPerformed(evt);
+                teamsAddButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout maintenancePanelLayout = new javax.swing.GroupLayout(maintenancePanel);
-        maintenancePanel.setLayout(maintenancePanelLayout);
-        maintenancePanelLayout.setHorizontalGroup(
-            maintenancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(maintenancePanelLayout.createSequentialGroup()
-                .addComponent(maintenanceScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(maintenancePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(maintenanceEditButton)
-                .addGap(41, 41, 41)
-                .addComponent(maintenanceAddButton)
-                .addGap(181, 181, 181))
+        painelImagemFundo3.setImg(new ImageIcon("src/main/java/resources/backgrounds/team-header.png"));
+        painelImagemFundo3.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        javax.swing.GroupLayout painelImagemFundo3Layout = new javax.swing.GroupLayout(painelImagemFundo3);
+        painelImagemFundo3.setLayout(painelImagemFundo3Layout);
+        painelImagemFundo3Layout.setHorizontalGroup(
+            painelImagemFundo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
         );
-        maintenancePanelLayout.setVerticalGroup(
-            maintenancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, maintenancePanelLayout.createSequentialGroup()
-                .addComponent(maintenanceScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(maintenancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(maintenanceEditButton)
-                    .addComponent(maintenanceAddButton))
+        painelImagemFundo3Layout.setVerticalGroup(
+            painelImagemFundo3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout teamsPanelLayout = new javax.swing.GroupLayout(teamsPanel);
+        teamsPanel.setLayout(teamsPanelLayout);
+        teamsPanelLayout.setHorizontalGroup(
+            teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, teamsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(teamsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(teamsPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                        .addComponent(teamsEditButton)
+                        .addGap(41, 41, 41)
+                        .addComponent(teamsAddButton)
+                        .addGap(169, 169, 169)))
+                .addContainerGap())
+            .addGroup(teamsPanelLayout.createSequentialGroup()
+                .addGap(223, 223, 223)
+                .addComponent(painelImagemFundo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        teamsPanelLayout.setVerticalGroup(
+            teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, teamsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(painelImagemFundo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(teamsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(teamsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(teamsEditButton)
+                    .addComponent(teamsAddButton))
+                .addContainerGap())
+        );
 
-        tabs.addTab("Maintenance", maintenancePanel);
+        tabs.addTab("Teams", teamsPanel);
 
         editMenu.setIcon(new javax.swing.ImageIcon("/Users/tashima-utfpr/NetBeansProjects/api-manager/src/main/java/resources/icons/edit.png")); // NOI18N
         editMenu.setText("Edit");
@@ -1163,13 +1163,6 @@ public class MainView extends javax.swing.JFrame {
         editMenu.add(employeesMenu);
 
         mainMenuBar.add(editMenu);
-
-        manageMenu.setText("Manage");
-
-        jMenuItem1.setText("Schedule Maintenance");
-        manageMenu.add(jMenuItem1);
-
-        mainMenuBar.add(manageMenu);
 
         setJMenuBar(mainMenuBar);
 
@@ -1434,22 +1427,6 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
         editApiDialogHandler();
     }//GEN-LAST:event_apiEditButtonMouseClicked
-
-    private void maintenanceEditButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maintenanceEditButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maintenanceEditButtonMouseClicked
-
-    private void maintenanceEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maintenanceEditButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maintenanceEditButtonActionPerformed
-
-    private void maintenanceAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maintenanceAddButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maintenanceAddButtonMouseClicked
-
-    private void maintenanceAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maintenanceAddButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maintenanceAddButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1982,17 +1959,13 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel employeesPanel;
     private javax.swing.JScrollPane employeesScrollPanel;
     private javax.swing.JTable employeesTable;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar mainMenuBar;
-    private javax.swing.JButton maintenanceAddButton;
-    private javax.swing.JButton maintenanceEditButton;
-    private javax.swing.JPanel maintenancePanel;
-    private javax.swing.JScrollPane maintenanceScrollPanel;
-    private javax.swing.JTable maintenanceTable;
-    private javax.swing.JMenu manageMenu;
     private javax.swing.JDialog messageDialog;
     private javax.swing.JLabel messageDialogLabel;
     private javax.swing.JButton messageDialogOkButton;
+    private com.tashima42.apimanager.views.netbeansgui.PainelImagemFundo painelImagemFundo1;
+    private com.tashima42.apimanager.views.netbeansgui.PainelImagemFundo painelImagemFundo2;
+    private com.tashima42.apimanager.views.netbeansgui.PainelImagemFundo painelImagemFundo3;
     private javax.swing.JMenuItem removeApiItem;
     private javax.swing.JTabbedPane tabs;
     private javax.swing.JButton teamAddCancelButton;

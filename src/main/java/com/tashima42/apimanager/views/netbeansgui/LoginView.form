@@ -54,6 +54,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -98,6 +99,9 @@
           <Connection code="new ImageIcon(&quot;src/main/java/resources/backgrounds/robot.jpg&quot;)" type="code"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="LoginView_painelImagemFundo1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

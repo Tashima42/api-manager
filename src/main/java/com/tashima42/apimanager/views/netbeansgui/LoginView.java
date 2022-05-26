@@ -82,6 +82,7 @@ public class LoginView extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         painelImagemFundo1.setImg(new ImageIcon("src/main/java/resources/backgrounds/robot.jpg"));
 
